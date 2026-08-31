@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * Design tokens
+ * Brand blue #0092DD and magenta #DD127B are sampled directly from the
+ * Muslim Medical Mission logo. The navy scale carries the structure.
+ * ------------------------------------------------------------------ */
+@theme {
+  --color-navy-950: #0a1730;
+  --color-navy-900: #0f1f42;
+  --color-navy-800: #142b57;
+  --color-navy-700: #1d3a73;
+  --color-navy-600: #2a4d8f;
+  --color-navy-500: #3d64ab;
+  --color-navy-300: #8ea3c8;
+  --color-navy-100: #dbe3f0;
+
+  --color-blue-brand: #0092dd;
+  --color-blue-bright: #26aef0;
+  --color-blue-soft: #e6f4fd;
+
+  --color-magenta-brand: #dd127b;
+  --color-magenta-deep: #b30d61;
+  --color-magenta-soft: #fdeaf3;
+
+  --color-cyan-accent: #40d9f1;
+  --color-sand: #f6f4ef;
+  --color-surface: #f3f5f8;
+  --color-line: #e2e7ef;
+  --color-ink: #101c33;
+  --color-slate-body: #4a5568;
+  --color-slate-muted: #6b7688;
+
+  --font-display: var(--font-manrope), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Segoe UI", system-ui, sans-serif;
+  --font-quote: var(--font-newsreader), Georgia, serif;
+
+  --shadow-soft: 0 2px 14px rgba(16, 28, 51, 0.07);
+  --shadow-lift: 0 22px 48px -18px rgba(16, 28, 51, 0.34);
+  --shadow-deep: 0 34px 70px -24px rgba(10, 23, 48, 0.55);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.022em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background: var(--color-magenta-brand);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-blue-bright);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  [id] { scroll-margin-top: 7.5rem; }
+
+  /* Elements that animate in from the right sit briefly outside the layout
+     box. `clip` contains that without creating a scroll container, so the
+     sticky header and in page anchors keep working. */
+  main {
+    overflow-x: clip;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Layout helpers
+ * ------------------------------------------------------------------ */
+@utility shell {
+  width: min(1240px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+@utility shell-wide {
+  width: min(1480px, 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+/* The angled section edges are the signature of the reference design.
+   Kept shallow so the crop never eats a face in a photograph. */
+@utility clip-down {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3.5vw), 0 100%);
+}
+
+@utility clip-up {
+  clip-path: polygon(0 3.5vw, 100% 0, 100% 100%, 0 100%);
+}
+
+@utility clip-both {
+  clip-path: polygon(0 3.5vw, 100% 0, 100% calc(100% - 3.5vw), 0 100%);
+}
+
+/* ------------------------------------------------------------------ *
+ * Motion
+ * ------------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.75s var(--ease-out-soft),
+    transform 0.75s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-left { transform: translateX(-30px); }
+.reveal-right { transform: translateX(30px); }
+.reveal-scale { transform: scale(0.955); }
+
+@keyframes drift-up {
+  from { transform: translateY(14px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes soft-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(64, 217, 241, 0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(64, 217, 241, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(64, 217, 241, 0); }
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1.06); }
+  to { transform: scale(1.14); }
+}
+
+.animate-marquee {
+  animation: marquee-x var(--marquee-duration, 46s) linear infinite;
+}
+
+.animate-soft-pulse { animation: soft-pulse 2.4s ease-out infinite; }
+.animate-slow-zoom { animation: slow-zoom 22s ease-in-out infinite alternate; }
+.animate-drift-up { animation: drift-up 0.7s var(--ease-out-soft) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-marquee,
+  .animate-soft-pulse,
+  .animate-slow-zoom,
+  .animate-drift-up {
+    animation: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Components
+ * ------------------------------------------------------------------ */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s var(--ease-out-soft);
+}
+.link-underline:hover { background-size: 100% 2px; }
+
+.rich p { margin-block: 1rem; color: var(--color-slate-body); }
+.rich p:first-child { margin-top: 0; }
+.rich strong { color: var(--color-ink); font-weight: 700; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
