@@ -7,7 +7,7 @@ import { Arrow, accentBar } from "./ui";
    round would be the exact kind of thing this site exists to avoid. */
 const drawnGround: Record<Program["accent"], string> = {
   blue: "radial-gradient(120% 90% at 15% 0%, #0092dd 0%, #12417c 55%, #0f1f42 100%)",
-  magenta: "radial-gradient(120% 90% at 15% 0%, #dd127b 0%, #7a1a5c 55%, #0f1f42 100%)",
+  magenta: "radial-gradient(120% 90% at 15% 0%, #e01f26 0%, #8a1420 55%, #0f1f42 100%)",
   navy: "radial-gradient(120% 90% at 15% 0%, #2a4d8f 0%, #172d57 55%, #0a1730 100%)",
   cyan: "radial-gradient(120% 90% at 15% 0%, #40d9f1 0%, #0b7fa8 55%, #0f1f42 100%)",
 };

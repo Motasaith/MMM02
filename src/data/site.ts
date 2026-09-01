@@ -55,7 +55,7 @@ export type NavItem = {
 
 export const nav: NavItem[] = [
   {
-    label: "About us",
+    label: "About Us",
     href: "/about",
     blurb:
       "Volunteer led since 2006, run by practising clinicians who take leave from their own jobs.",
@@ -87,7 +87,7 @@ export const nav: NavItem[] = [
     },
   },
   {
-    label: "What we do",
+    label: "What We Do",
     href: "/what-we-do",
     blurb:
       "Eleven programmes across two countries. Every one of them free at the point of delivery.",
@@ -130,8 +130,34 @@ export const nav: NavItem[] = [
     },
   },
   {
-    label: "Disaster response",
+    label: "Disaster Response",
     href: "/disaster-response",
+    blurb: "Rapid clinical and emergency relief deployment across disaster-affected zones.",
+    columns: [
+      {
+        heading: "Emergency Relief",
+        links: [
+          { label: "Flood emergency camps", href: "/what-we-do/flood-medical-camps" },
+          { label: "Ration & food relief", href: "/what-we-do/flood-relief" },
+          { label: "Clean drinking water", href: "/what-we-do/water-for-life" },
+        ],
+      },
+      {
+        heading: "Gaza Support",
+        links: [
+          { label: "Gaza field clinics", href: "/what-we-do/gaza-field-clinics" },
+          { label: "Winter packages", href: "/what-we-do/winter-packages" },
+          { label: "Donate to relief fund", href: "/donate" },
+        ],
+      },
+    ],
+    feature: {
+      title: "Immediate Disaster Aid",
+      body: "Our medical response teams provide on-ground emergency care, medicine, and critical supplies.",
+      href: "/disaster-response",
+      cta: "Explore operations",
+      image: "/media/disaster/disaster-11.jpg",
+    },
   },
   {
     label: "Media",
@@ -155,10 +181,43 @@ export const nav: NavItem[] = [
         ],
       },
     ],
+    feature: {
+      title: "Field Reports & Stories",
+      body: "Read firsthand accounts and visual documentation from our active medical relief missions.",
+      href: "/media",
+      cta: "View gallery",
+      image: "/media/brand/health-campaign.jpg",
+    },
   },
   {
-    label: "Get involved",
+    label: "Get Involved",
     href: "/get-involved",
+    blurb: "Join a network of volunteer doctors, paramedics, and supporters serving humanity.",
+    columns: [
+      {
+        heading: "Volunteer",
+        links: [
+          { label: "Doctors & medical staff", href: "/get-involved" },
+          { label: "Paramedics & field support", href: "/get-involved" },
+          { label: "Student volunteer wing", href: "/get-involved" },
+        ],
+      },
+      {
+        heading: "Support Us",
+        links: [
+          { label: "Donate directly", href: "/donate" },
+          { label: "Corporate & institutional partners", href: "/get-involved#partners" },
+          { label: "Contact the team", href: "/contact" },
+        ],
+      },
+    ],
+    feature: {
+      title: "Make a Difference",
+      body: "Lend your clinical expertise or time to bring urgent medical relief to those most in need.",
+      href: "/get-involved",
+      cta: "Join as volunteer",
+      image: "/media/brand/mmm-lahore-2015.jpg",
+    },
   },
 ];
 

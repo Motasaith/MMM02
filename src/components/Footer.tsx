@@ -39,8 +39,8 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Brand block */}
           <div className="lg:col-span-4">
-            <span className="inline-flex rounded-xl bg-white px-4 py-3">
-              <img src="/media/brand/logo.png" alt={org.name} className="h-11 w-auto" />
+            <span className="inline-flex items-center rounded-xl bg-white px-4 py-3 shadow-[0_10px_30px_-12px_rgba(6,14,30,0.7)]">
+              <img src="/media/brand/logo-trim.png" alt={org.name} className="h-14 w-auto" />
             </span>
             <p className="mt-6 max-w-sm text-[0.97rem] leading-relaxed text-navy-300">
               A volunteer network of Muslim doctors, paramedics and students running free healthcare

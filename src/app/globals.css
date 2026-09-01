@@ -2,8 +2,8 @@
 
 /* ------------------------------------------------------------------ *
  * Design tokens
- * Brand blue #0092DD and magenta #DD127B are sampled directly from the
- * Muslim Medical Mission logo. The navy scale carries the structure.
+ * Brand blue #0092DD and red #E01F26 are sampled directly from the
+ * Muslim Medical Mission crescent logo. The navy scale carries the structure.
  * ------------------------------------------------------------------ */
 @theme {
   --color-navy-950: #0a1730;
@@ -19,9 +19,15 @@
   --color-blue-bright: #26aef0;
   --color-blue-soft: #e6f4fd;
 
-  --color-magenta-brand: #dd127b;
-  --color-magenta-deep: #b30d61;
-  --color-magenta-soft: #fdeaf3;
+  --color-red-brand: #e01f26;
+  --color-red-deep: #b3141a;
+  --color-red-soft: #fdecec;
+
+  /* Legacy aliases: the previous magenta palette maps onto the logo red so
+     existing magenta-* utilities keep working across the site. */
+  --color-magenta-brand: var(--color-red-brand);
+  --color-magenta-deep: var(--color-red-deep);
+  --color-magenta-soft: var(--color-red-soft);
 
   --color-cyan-accent: #40d9f1;
   --color-sand: #f6f4ef;
@@ -76,7 +82,7 @@
   p { text-wrap: pretty; }
 
   ::selection {
-    background: var(--color-magenta-brand);
+    background: var(--color-red-brand);
     color: #fff;
   }
 

@@ -77,31 +77,38 @@ export function Hero() {
             <img
               src={s.image}
               alt={i === active ? s.alt : ""}
-              className={`h-full w-full object-cover ${i === active ? "animate-slow-zoom" : ""}`}
+              className={`h-full w-full object-cover brightness-[1.07] saturate-[1.06] ${
+                i === active ? "animate-slow-zoom" : ""
+              }`}
               fetchPriority={i === 0 ? "high" : "low"}
             />
           </div>
         ))}
       </div>
 
+      {/* Light-touch scrims: a soft anchor on the left for the headline and a
+         gentle fade at the foot for the operations bar. The photograph itself
+         stays clearly visible across the rest of the frame. */}
       <div
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950 via-navy-950/86 to-navy-950/20"
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-navy-950/72 via-navy-950/28 to-navy-950/5"
         aria-hidden
       />
       <div
-        className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950 via-navy-950/25 to-navy-950/60"
+        className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950/70 via-transparent to-navy-950/15"
         aria-hidden
       />
 
       {/* Statement */}
       <div className="flex flex-1 items-center pt-28 sm:pt-32">
         <div className="shell-wide">
-          <h1 className="text-[clamp(2.05rem,4.9vw,3.9rem)] leading-[1.04] text-white">
+          <h1 className="text-[clamp(2.05rem,4.9vw,3.9rem)] leading-[1.04] text-white [text-shadow:0_2px_24px_rgba(10,23,48,0.55)]">
             <span className="block max-w-[15ch]">The nearest doctor is four hours away.</span>
-            <span className="mt-1 block text-cyan-accent">So we bring the clinic.</span>
+            <span className="mt-1 block text-cyan-accent [text-shadow:0_2px_24px_rgba(10,23,48,0.55)]">
+              So we bring the clinic.
+            </span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-[clamp(0.98rem,1.2vw,1.12rem)] leading-relaxed text-navy-100">
+          <p className="mt-6 max-w-xl text-[clamp(0.98rem,1.2vw,1.12rem)] leading-relaxed text-white/95 [text-shadow:0_1px_14px_rgba(10,23,48,0.6)]">
             A volunteer network of Muslim doctors, paramedics and students, running free medical
             camps where the health system does not reach and moving first when a district floods.
           </p>
@@ -109,7 +116,7 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap items-center gap-3.5">
             <Link
               href="/donate"
-              className="group inline-flex items-center gap-2.5 bg-magenta-brand px-8 py-4 font-display font-bold text-white shadow-[0_18px_40px_-16px_rgba(221,18,123,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-magenta-deep"
+              className="group inline-flex items-center gap-2.5 bg-magenta-brand px-8 py-4 font-display font-bold text-white shadow-[0_18px_40px_-16px_rgba(224,31,38,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-magenta-deep"
             >
               Fund a camp
               <Arrow className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -127,7 +134,7 @@ export function Hero() {
 
       {/* Operations bar, pinned to the foot of the viewport */}
       <div
-        className="relative border-t border-white/12 bg-navy-950/55 backdrop-blur-md"
+        className="relative border-t border-white/15 bg-navy-950/45 backdrop-blur-md"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >

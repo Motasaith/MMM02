@@ -11,52 +11,92 @@ import { Arrow } from "./ui";
 /* Icons                                                               */
 /* ------------------------------------------------------------------ */
 
-function Chevron({ open }: { open: boolean }) {
+function PhoneIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden
-      className={`h-3 w-3 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-      fill="none"
-    >
-      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 0 24 24" aria-hidden className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
     </svg>
   );
 }
 
-function SearchIcon({ className = "" }: { className?: string }) {
+function MailIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden className={`h-[18px] w-[18px] ${className}`} fill="none">
-      <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2.2" />
-      <path d="M16.5 16.5L21 21" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+    <svg viewBox="0 0 24 24" aria-hidden className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+
+function HeartIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden className={className} fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+    </svg>
+  );
+}
+
+function ChevronDown({ className = "h-3 w-3", open = false }: { className?: string; open?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden
+      className={`${className} transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+
+function ChevronRight({ className = "h-3 w-3" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M9 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+function SearchIcon({ className = "h-[19px] w-[19px]" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden className={className} fill="none" stroke="currentColor">
+      <circle cx="11" cy="11" r="7" strokeWidth="2.2" />
+      <path d="M16.5 16.5L21 21" strokeWidth="2.2" strokeLinecap="round" />
     </svg>
   );
 }
 
 /* ------------------------------------------------------------------ */
 /* Mega panel                                                          */
-/*                                                                     */
-/* Dark, full bleed, and cut at the bottom on the same angle the rest  */
-/* of the page uses, so the menu reads as part of the header rather    */
-/* than a white box dropped on top of it.                              */
 /* ------------------------------------------------------------------ */
 
 function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void }) {
   const cols = item.columns ?? [];
-
-  // Three link columns need the extra width; two breathe better without it.
   const linkSpan = item.feature ? "lg:col-span-7" : "lg:col-span-10";
   const linkCols = cols.length >= 3 ? "lg:grid-cols-3" : "lg:grid-cols-2";
 
   return (
-    <div className="animate-drift-up border-t border-white/10 bg-navy-900">
-      <div className="shell-wide grid gap-x-10 gap-y-10 py-11 lg:grid-cols-12">
-        {/* Section framing, so the menu says something rather than only listing */}
+    <div className="animate-drift-up border-t border-white/10 bg-navy-950/98 shadow-2xl backdrop-blur-xl">
+      <div className="shell-wide grid gap-x-10 gap-y-10 py-10 lg:grid-cols-12">
+        {/* Section framing */}
         <div className="lg:col-span-2">
-          <h2 className="font-display text-[1.35rem] leading-tight font-extrabold text-white">
+          <h2 className="font-display text-[1.3rem] leading-tight font-extrabold text-white">
             {item.label}
           </h2>
-          <span className="mt-3 block h-1 w-10 bg-magenta-brand" aria-hidden />
+          <span className="mt-3 block h-1 w-10 bg-red-brand" aria-hidden />
           {item.blurb ? (
             <p className="mt-4 text-[0.87rem] leading-relaxed text-navy-300">{item.blurb}</p>
           ) : null}
@@ -101,23 +141,23 @@ function MegaPanel({ item, onNavigate }: { item: NavItem; onNavigate: () => void
           <Link
             href={item.feature.href}
             onClick={onNavigate}
-            className="group relative isolate flex min-h-[230px] flex-col justify-end overflow-hidden p-6 lg:col-span-3"
+            className="group relative isolate flex min-h-[220px] flex-col justify-end overflow-hidden rounded-md border border-white/10 p-6 lg:col-span-3"
           >
             <img
               src={item.feature.image}
               alt=""
               aria-hidden
-              className="absolute inset-0 -z-10 h-full w-full object-cover opacity-55 transition-transform duration-[900ms] group-hover:scale-105"
+              className="absolute inset-0 -z-10 h-full w-full object-cover opacity-50 transition-transform duration-700 group-hover:scale-105"
             />
             <span
-              className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950 via-navy-950/70 to-navy-950/10"
+              className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-950 via-navy-950/75 to-navy-950/20"
               aria-hidden
             />
-            <h3 className="font-display text-[1.1rem] font-extrabold text-white">
+            <h3 className="font-display text-[1.08rem] font-extrabold text-white">
               {item.feature.title}
             </h3>
-            <p className="mt-2 text-[0.86rem] leading-snug text-navy-100">{item.feature.body}</p>
-            <span className="mt-3 inline-flex items-center gap-2 font-display text-[0.83rem] font-bold text-cyan-accent">
+            <p className="mt-2 text-[0.85rem] leading-snug text-navy-200">{item.feature.body}</p>
+            <span className="mt-3 inline-flex items-center gap-2 font-display text-[0.82rem] font-bold text-cyan-accent">
               {item.feature.cta}
               <Arrow className="transition-transform duration-300 group-hover:translate-x-1" />
             </span>
@@ -142,17 +182,17 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
   }, []);
 
   return (
-    <div className="animate-drift-up border-t border-white/10 bg-navy-900">
-      <div className="shell-wide py-9">
-        <label className="flex items-center gap-4 border-b-2 border-white/25 pb-4 focus-within:border-cyan-accent">
+    <div className="animate-drift-up border-t border-white/10 bg-navy-950/98 shadow-2xl backdrop-blur-xl">
+      <div className="shell-wide py-8">
+        <label className="flex items-center gap-4 border-b-2 border-white/20 pb-4 focus-within:border-cyan-accent">
           <SearchIcon className="h-6 w-6 shrink-0 text-cyan-accent" />
           <span className="sr-only">Search this site</span>
           <input
             ref={inputRef}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search programmes, reports and pages"
-            className="w-full bg-transparent font-display text-[1.3rem] font-bold text-white outline-none placeholder:font-normal placeholder:text-navy-300"
+            placeholder="Search programmes, reports, disaster relief..."
+            className="w-full bg-transparent font-display text-[1.2rem] font-bold text-white outline-none placeholder:font-normal placeholder:text-navy-400"
           />
           <button
             type="button"
@@ -171,9 +211,9 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
                   <Link
                     href={r.href}
                     onClick={onClose}
-                    className="group flex items-baseline justify-between gap-4 px-4 py-3 transition-colors hover:bg-white/8"
+                    className="group flex items-baseline justify-between gap-4 rounded px-4 py-3 transition-colors hover:bg-white/8"
                   >
-                    <span className="font-display text-[1rem] font-bold text-white group-hover:text-cyan-accent">
+                    <span className="font-display text-[0.98rem] font-bold text-white group-hover:text-cyan-accent">
                       {r.title}
                     </span>
                     <span className="shrink-0 text-[0.78rem] font-semibold text-navy-300">
@@ -195,7 +235,7 @@ function SearchPanel({ onClose }: { onClose: () => void }) {
 }
 
 /* ------------------------------------------------------------------ */
-/* Header                                                              */
+/* Header Component                                                    */
 /* ------------------------------------------------------------------ */
 
 export function Header() {
@@ -207,7 +247,7 @@ export function Header() {
   const [drawerSection, setDrawerSection] = useState<string | null>(null);
   const closeTimer = useRef<number | null>(null);
 
-  const overHero = pathname === "/";
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -246,87 +286,141 @@ export function Header() {
 
   const scheduleClose = useCallback(() => {
     cancelClose();
-    closeTimer.current = window.setTimeout(() => setOpenMenu(null), 160);
+    closeTimer.current = window.setTimeout(() => setOpenMenu(null), 180);
   }, [cancelClose]);
 
-  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   const panelOpen = Boolean(openMenu) || searchOpen;
-  const solid = scrolled || panelOpen || !overHero;
+  const solid = scrolled || panelOpen || !isHome;
 
   return (
     <>
       <header
-        className="fixed inset-x-0 top-0 z-50"
+        className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
         onMouseLeave={scheduleClose}
       >
-        {/* Ground. Translucent over the hero photograph, solid everywhere else. */}
+        {/* Background translucent sheet - strictly sized to navbar height (90px) */}
         <div
-          className={`absolute inset-0 -z-10 transition-all duration-500 ${
+          className={`absolute inset-x-0 top-0 -z-10 transition-all duration-300 ${
+            scrolled ? "h-[56px]" : "h-[90px]"
+          } ${
             solid
-              ? "bg-navy-900 shadow-[0_14px_40px_-22px_rgba(6,14,30,0.9)]"
-              : "bg-gradient-to-b from-navy-950/85 via-navy-950/55 to-transparent"
+              ? "bg-[#071328]/95 backdrop-blur-md shadow-[0_10px_30px_-12px_rgba(0,0,0,0.8)]"
+              : "bg-gradient-to-b from-[#071328]/90 via-[#071328]/70 to-[#071328]/45 backdrop-blur-sm"
           }`}
           aria-hidden
         />
 
-        <div className="flex items-stretch">
-          {/* Brand plaque, cut on the diagonal into the navy */}
-          <Link
-            href="/"
-            aria-label={`${org.name}, home`}
-            className={`relative z-10 flex shrink-0 items-center bg-white pr-10 pl-5 transition-all duration-400 sm:pr-14 sm:pl-8 ${
-              scrolled ? "py-2.5" : "py-3.5 sm:py-5"
-            }`}
-            style={{ clipPath: "polygon(0 0, 100% 0, calc(100% - 30px) 100%, 0 100%)" }}
-          >
-            <img
-              src="/media/brand/logo.png"
-              alt={org.name}
-              className={`w-auto transition-all duration-400 ${
-                scrolled ? "h-[38px] sm:h-[42px]" : "h-[42px] sm:h-[56px]"
+        <div className="flex items-start">
+          {/* ------------------------------------------------------------- */}
+          {/* Logo Badge: 116px height with 26px chamfer corner cut         */}
+          {/* Vertical edge is 90px, perfectly meeting the 90px navbar line */}
+          {/* ------------------------------------------------------------- */}
+          <div className="relative z-20 shrink-0 filter drop-shadow-[0_12px_28px_rgba(0,0,0,0.45)]">
+            <Link
+              href="/"
+              aria-label={`${org.name}, home`}
+              className={`flex items-center justify-center bg-white px-5 sm:px-7 lg:px-8 transition-all duration-300 ${
+                scrolled
+                  ? "h-[82px] pb-2.5 pt-1.5"
+                  : "h-[116px] pb-3.5 pt-2"
               }`}
-            />
-          </Link>
+              style={{
+                clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%)",
+              }}
+            >
+              <img
+                src="/media/brand/logo-trim.png"
+                alt={org.name}
+                className={`w-auto object-contain transition-all duration-300 ${
+                  scrolled
+                    ? "h-[58px] sm:h-[64px]"
+                    : "h-[86px] sm:h-[92px]"
+                }`}
+              />
+            </Link>
+          </div>
 
-          <div className="flex min-w-0 flex-1 flex-col">
-            {/* Utility row, actions flush to the right edge of the viewport */}
+          {/* ------------------------------------------------------------- */}
+          {/* Right Header Section: 90px Navbar (36px utility + 54px nav)   */}
+          {/* ------------------------------------------------------------- */}
+          <div
+            className={`flex min-w-0 flex-1 flex-col justify-between transition-all duration-300 ${
+              scrolled ? "h-[56px]" : "h-[90px]"
+            }`}
+          >
+            {/* Upper Tier: Utility Row (36px) */}
             <div
-              className={`flex items-stretch justify-end overflow-hidden transition-all duration-400 ${
-                scrolled ? "max-h-0 opacity-0" : "max-h-24 min-h-[52px] opacity-100"
+              className={`flex items-center justify-end border-b border-white/10 px-4 sm:px-6 lg:px-8 transition-all duration-300 ${
+                scrolled ? "max-h-0 opacity-0 overflow-hidden py-0 border-b-0" : "h-[36px] opacity-100"
               }`}
             >
-              <div className="hidden items-center gap-6 pr-6 text-[0.8rem] text-navy-100 xl:flex">
-                <a href={org.phoneHref} className="font-semibold transition-colors hover:text-white">
-                  {org.phone}
+              {/* Contact info: Phone & Email */}
+              <div className="hidden items-center gap-6 text-[0.82rem] text-slate-200 md:flex">
+                <a
+                  href={org.phoneHref}
+                  className="flex items-center gap-2 font-medium text-slate-200 transition-colors hover:text-white"
+                >
+                  <PhoneIcon className="h-3.5 w-3.5 text-slate-300" />
+                  <span>{org.phone}</span>
                 </a>
                 <a
                   href={`mailto:${org.email}`}
-                  className="transition-colors hover:text-white"
+                  className="flex items-center gap-2 font-medium text-slate-200 transition-colors hover:text-white"
                 >
-                  {org.email}
+                  <MailIcon className="h-3.5 w-3.5 text-slate-300" />
+                  <span>{org.email}</span>
                 </a>
               </div>
 
-              <Link
-                href="/get-involved"
-                className="hidden items-center bg-blue-brand px-7 font-display text-[0.9rem] font-bold text-white transition-colors hover:bg-blue-bright sm:flex"
-              >
-                Volunteer
-              </Link>
-              <Link
-                href="/donate"
-                className="flex items-center gap-2 bg-magenta-brand px-6 font-display text-[0.9rem] font-bold text-white transition-colors hover:bg-magenta-deep sm:px-8"
-              >
-                Donate
-                <Arrow className="h-3.5 w-3.5" />
-              </Link>
+              {/* Action Buttons: Volunteer & Donate */}
+              <div className="flex items-center gap-4 sm:gap-5 md:ml-8">
+                <Link
+                  href="/get-involved"
+                  className="font-display text-[0.86rem] font-bold text-cyan-400 transition-colors hover:text-cyan-300 hover:underline"
+                >
+                  Volunteer
+                </Link>
+
+                <Link
+                  href="/donate"
+                  className="inline-flex items-center gap-1.5 rounded-[4px] bg-[#e01f26] px-4 py-1.5 font-display text-[0.84rem] font-bold text-white shadow-sm transition-all hover:bg-[#c9181f] active:scale-95"
+                >
+                  <span>Donate</span>
+                  <HeartIcon className="h-3.5 w-3.5" />
+                  <ChevronRight className="h-3 w-3 stroke-[3]" />
+                </Link>
+              </div>
             </div>
 
-            {/* Navigation row */}
-            <div className="flex flex-1 items-center justify-end gap-1 pr-4 sm:pr-6">
+            {/* Lower Tier: Main Navigation Bar (54px) */}
+            <div className="flex h-[54px] items-center justify-between px-4 sm:px-6 lg:px-8">
+              {/* Navigation links (Left Aligned on desktop) */}
               <nav className="hidden items-center lg:flex" aria-label="Main">
-                <ul className="flex items-center">
+                <ul className="flex items-center gap-1 xl:gap-2">
+                  {/* Home Item */}
+                  <li>
+                    <Link
+                      href="/"
+                      className={`relative block px-3.5 py-2.5 font-display text-[0.92rem] font-bold transition-colors ${
+                        isHome ? "text-cyan-400" : "text-slate-100 hover:text-white"
+                      }`}
+                    >
+                      Home
+                      {isHome && (
+                        <span
+                          className="absolute inset-x-3.5 bottom-1 h-[2.5px] rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.7)]"
+                          aria-hidden
+                        />
+                      )}
+                    </Link>
+                  </li>
+
+                  {/* Navigation Items with Dropdowns */}
                   {nav.map((item) => {
                     const hasPanel = Boolean(item.columns);
                     const open = openMenu === item.label;
@@ -346,33 +440,33 @@ export function Header() {
                             type="button"
                             aria-expanded={open}
                             onClick={() => setOpenMenu(open ? null : item.label)}
-                            className={`relative flex items-center gap-2 px-4 py-4 font-display text-[0.95rem] font-bold transition-colors ${
-                              open || active ? "text-cyan-accent" : "text-white hover:text-cyan-accent"
+                            className={`group relative flex items-center gap-1.5 px-3.5 py-2.5 font-display text-[0.92rem] font-bold transition-colors ${
+                              open || active ? "text-white" : "text-slate-100 hover:text-white"
                             }`}
                           >
-                            {item.label}
-                            <Chevron open={open} />
-                            <span
-                              className={`absolute inset-x-3 bottom-2 h-0.5 origin-left bg-cyan-accent transition-transform duration-300 ${
-                                open || active ? "scale-x-100" : "scale-x-0"
-                              }`}
-                              aria-hidden
-                            />
+                            <span>{item.label}</span>
+                            <ChevronDown className="h-3 w-3 text-slate-300 group-hover:text-white" open={open} />
+                            {active && !isHome && (
+                              <span
+                                className="absolute inset-x-3.5 bottom-1 h-[2.5px] rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.7)]"
+                                aria-hidden
+                              />
+                            )}
                           </button>
                         ) : (
                           <Link
                             href={item.href}
-                            className={`relative block px-4 py-4 font-display text-[0.95rem] font-bold transition-colors ${
-                              active ? "text-cyan-accent" : "text-white hover:text-cyan-accent"
+                            className={`relative block px-3.5 py-2.5 font-display text-[0.92rem] font-bold transition-colors ${
+                              active ? "text-white" : "text-slate-100 hover:text-white"
                             }`}
                           >
                             {item.label}
-                            <span
-                              className={`absolute inset-x-3 bottom-2 h-0.5 origin-left bg-cyan-accent transition-transform duration-300 ${
-                                active ? "scale-x-100" : "scale-x-0"
-                              }`}
-                              aria-hidden
-                            />
+                            {active && (
+                              <span
+                                className="absolute inset-x-3.5 bottom-1 h-[2.5px] rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.7)]"
+                                aria-hidden
+                              />
+                            )}
                           </Link>
                         )}
                       </li>
@@ -381,55 +475,42 @@ export function Header() {
                 </ul>
               </nav>
 
-              <div className="flex items-center gap-1">
-              <a
-                href={org.phoneHref}
-                aria-label={`Call ${org.phone}`}
-                className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-white hover:bg-white/10 lg:hidden"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden className="h-[18px] w-[18px]" fill="none">
-                  <path
-                    d="M6.6 3.5 9 3.9l1 3.4-1.9 1.4a12.6 12.6 0 0 0 6.2 6.2l1.4-1.9 3.4 1 .4 2.4a1.6 1.6 0 0 1-1.6 1.8A15.6 15.6 0 0 1 4.8 5.1 1.6 1.6 0 0 1 6.6 3.5Z"
-                    stroke="currentColor"
-                    strokeWidth="1.9"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-              <button
-                type="button"
-                onClick={() => {
-                  setOpenMenu(null);
-                  setSearchOpen((s) => !s);
-                }}
-                aria-expanded={searchOpen}
-                aria-label="Search"
-                className={`ml-1 grid h-11 w-11 place-items-center rounded-full border transition-colors ${
-                  searchOpen
-                    ? "border-cyan-accent bg-cyan-accent text-navy-950"
-                    : "border-white/25 text-white hover:border-white hover:bg-white/10"
-                }`}
-              >
-                <SearchIcon />
-              </button>
+              {/* Right Side Icons: Search & Mobile Menu Trigger */}
+              <div className="flex items-center gap-2 ml-auto">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpenMenu(null);
+                    setSearchOpen((s) => !s);
+                  }}
+                  aria-expanded={searchOpen}
+                  aria-label="Search site"
+                  className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors ${
+                    searchOpen
+                      ? "bg-white/20 text-cyan-400"
+                      : "text-slate-200 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  <SearchIcon className="h-[19px] w-[19px]" />
+                </button>
 
-              {/* Mobile trigger */}
-              <button
-                type="button"
-                onClick={() => setDrawer(true)}
-                aria-label="Open menu"
-                className="relative ml-1 h-11 w-11 shrink-0 rounded-full border border-white/25 text-white transition-colors hover:bg-white/10 lg:hidden"
-              >
-                <span className="absolute top-[15px] right-3 left-3 h-0.5 rounded bg-current" />
-                <span className="absolute top-[21px] right-3 left-3 h-0.5 rounded bg-current" />
-                <span className="absolute top-[27px] right-3 left-3 h-0.5 rounded bg-current" />
-              </button>
+                {/* Mobile Drawer Trigger */}
+                <button
+                  type="button"
+                  onClick={() => setDrawer(true)}
+                  aria-label="Open menu"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 lg:hidden"
+                >
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 6h16M4 12h16M4 18h16" strokeLinecap="round" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Panels */}
+        {/* Mega Panels & Overlays */}
         <div className="hidden lg:block" onMouseEnter={cancelClose}>
           {nav.map((item) =>
             item.columns && openMenu === item.label ? (
@@ -443,79 +524,102 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile drawer */}
+      {/* --------------------------------------------------------------- */}
+      {/* Mobile Drawer Navigation                                        */}
+      {/* --------------------------------------------------------------- */}
       <div
         className={`fixed inset-0 z-[70] lg:hidden ${drawer ? "" : "pointer-events-none"}`}
         aria-hidden={!drawer}
       >
+        {/* Backdrop */}
         <div
           onClick={() => setDrawer(false)}
-          className={`absolute inset-0 bg-navy-950/70 backdrop-blur-sm transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-navy-950/80 backdrop-blur-sm transition-opacity duration-300 ${
             drawer ? "opacity-100" : "opacity-0"
           }`}
         />
+
+        {/* Slide-out Sheet */}
         <div
-          className={`absolute inset-y-0 right-0 flex w-[min(420px,92vw)] flex-col bg-navy-900 transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          className={`absolute inset-y-0 right-0 flex w-[min(380px,88vw)] flex-col bg-[#071328] shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             drawer ? "translate-x-0" : "translate-x-full"
           }`}
         >
+          {/* Drawer Header */}
           <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
-            <span className="rounded bg-white px-3 py-2">
-              <img src="/media/brand/logo.png" alt="" className="h-9 w-auto" />
+            <span className="inline-flex items-center rounded-lg bg-white px-3 py-2 shadow-md">
+              <img src="/media/brand/logo-trim.png" alt={org.name} className="h-10 w-auto object-contain" />
             </span>
             <button
               type="button"
               onClick={() => setDrawer(false)}
               aria-label="Close menu"
-              className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-white hover:bg-white/10"
             >
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
-                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                <path d="M6 6l12 12M18 6L6 18" />
               </svg>
             </button>
           </div>
 
-          <nav className="flex-1 overflow-y-auto px-5 py-3" aria-label="Mobile">
+          {/* Drawer Links */}
+          <nav className="flex-1 overflow-y-auto px-5 py-4" aria-label="Mobile Navigation">
             <ul className="divide-y divide-white/10">
+              <li>
+                <Link
+                  href="/"
+                  onClick={() => setDrawer(false)}
+                  className="block py-3.5 font-display text-[1.05rem] font-bold text-cyan-400"
+                >
+                  Home
+                </Link>
+              </li>
+
               {nav.map((item) => {
                 const open = drawerSection === item.label;
                 if (!item.columns) {
                   return (
                     <li key={item.label}>
-                      <Link href={item.href} className="block py-4 font-display text-lg font-bold text-white">
+                      <Link
+                        href={item.href}
+                        onClick={() => setDrawer(false)}
+                        className="block py-3.5 font-display text-[1.05rem] font-bold text-white"
+                      >
                         {item.label}
                       </Link>
                     </li>
                   );
                 }
+
                 return (
                   <li key={item.label}>
                     <button
                       type="button"
                       aria-expanded={open}
                       onClick={() => setDrawerSection(open ? null : item.label)}
-                      className="flex w-full items-center justify-between py-4 font-display text-lg font-bold text-white"
+                      className="flex w-full items-center justify-between py-3.5 font-display text-[1.05rem] font-bold text-white"
                     >
-                      {item.label}
-                      <Chevron open={open} />
+                      <span>{item.label}</span>
+                      <ChevronDown open={open} className="h-4 w-4 text-slate-300" />
                     </button>
                     <div
-                      className={`grid transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                      className={`grid transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                         open ? "grid-rows-[1fr] pb-4 opacity-100" : "grid-rows-[0fr] opacity-0"
                       }`}
                     >
                       <div className="overflow-hidden">
                         {item.columns.map((col) => (
                           <div key={col.heading} className="mb-4">
-                            <p className="font-display text-[0.9rem] font-extrabold text-cyan-accent">
+                            <p className="font-display text-[0.88rem] font-extrabold text-cyan-accent">
                               {col.heading}
                             </p>
-                            <ul className="mt-2 space-y-1 border-l border-white/15 pl-4">
+                            <ul className="mt-2 space-y-1.5 border-l border-white/15 pl-4">
                               {col.links.map((l) => (
                                 <li key={l.href + l.label}>
                                   <Link
                                     href={l.href}
-                                    className="block py-1.5 text-[0.96rem] font-semibold text-navy-100"
+                                    onClick={() => setDrawer(false)}
+                                    className="block py-1 text-[0.92rem] font-semibold text-slate-200 hover:text-cyan-accent"
                                   >
                                     {l.label}
                                   </Link>
@@ -532,21 +636,29 @@ export function Header() {
             </ul>
           </nav>
 
-          <div className="grid gap-2.5 border-t border-white/10 p-5">
+          {/* Drawer CTA footer */}
+          <div className="grid gap-3 border-t border-white/10 p-5">
             <Link
               href="/donate"
-              className="bg-magenta-brand px-6 py-3.5 text-center font-display font-bold text-white"
+              onClick={() => setDrawer(false)}
+              className="flex items-center justify-center gap-2 rounded bg-red-brand py-3 text-center font-display font-bold text-white shadow hover:bg-red-deep"
             >
-              Donate
+              <span>Donate</span>
+              <HeartIcon className="h-4 w-4" />
             </Link>
             <Link
               href="/get-involved"
-              className="bg-blue-brand px-6 py-3.5 text-center font-display font-bold text-white"
+              onClick={() => setDrawer(false)}
+              className="rounded border border-cyan-400/40 bg-cyan-400/10 py-3 text-center font-display font-bold text-cyan-300 hover:bg-cyan-400/20"
             >
               Volunteer with us
             </Link>
-            <a href={org.phoneHref} className="pt-2 text-center text-sm font-semibold text-navy-300">
-              {org.phone}
+            <a
+              href={org.phoneHref}
+              className="flex items-center justify-center gap-2 pt-2 text-center text-xs font-semibold text-slate-300 hover:text-white"
+            >
+              <PhoneIcon className="h-3 w-3" />
+              <span>{org.phone}</span>
             </a>
           </div>
         </div>

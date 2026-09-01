@@ -34,7 +34,7 @@ type ButtonProps = {
 
 const variants = {
   donate:
-    "bg-magenta-brand text-white hover:bg-magenta-deep shadow-[0_14px_30px_-12px_rgba(221,18,123,0.85)]",
+    "bg-magenta-brand text-white hover:bg-magenta-deep shadow-[0_14px_30px_-12px_rgba(224,31,38,0.85)]",
   primary:
     "bg-blue-brand text-white hover:bg-navy-700 shadow-[0_14px_30px_-12px_rgba(0,146,221,0.8)]",
   ghost: "border-2 border-white/45 text-white hover:border-white hover:bg-white/12",
