@@ -5,8 +5,11 @@ import { Reveal } from "../Reveal";
 import { Arrow } from "../ui";
 
 export function Programmes() {
-  const [lead, ...rest] = programs;
-  const shown = rest.slice(0, 4);
+  const lead = programs.find((p) => p.slug === "flood-medical-camps") || programs[0];
+  const featuredSlugs = ["training", "save-vision", "gaza-field-clinics", "prison-healthcare"];
+  const shown = featuredSlugs
+    .map((slug) => programs.find((p) => p.slug === slug))
+    .filter(Boolean) as typeof programs;
 
   return (
     <section className="relative overflow-hidden bg-[#F5F7FA] py-14 sm:py-16 lg:py-20 border-b border-[#DCE2EA]">
@@ -14,17 +17,17 @@ export function Programmes() {
         {/* UNDA Style Section Header with Title & Top-Right View All Link */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#DCE2EA] pb-6">
           <div>
-            <h2 className="text-[clamp(1.75rem,2.8vw,2.4rem)] leading-tight font-black tracking-tight text-[#0A1020]">
+            <h2 className="font-display text-[clamp(2.05rem,3.4vw,2.85rem)] leading-[1.1] font-black tracking-tight text-[#0A1020]">
               Our Current Projects
             </h2>
-            <p className="mt-2 max-w-2xl text-[0.95rem] text-[#4B5563]">
+            <p className="mt-2.5 max-w-2xl text-[1.02rem] sm:text-[1.08rem] leading-relaxed text-[#4B5563]">
               From mobile mountain clinics in Balochistan to daily clean water runs and field surgery in Gaza, every project is free at the point of delivery.
             </p>
           </div>
 
           <Link
             href="/what-we-do"
-            className="group inline-flex items-center gap-2 text-sm font-bold text-[#075BD6] transition-colors hover:text-[#0649B8] shrink-0"
+            className="group inline-flex items-center gap-2 font-display text-[0.96rem] font-bold text-[#075BD6] transition-colors hover:text-[#0649B8] shrink-0"
           >
             <span>View All Projects</span>
             <Arrow className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1.5" />

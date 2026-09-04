@@ -54,8 +54,8 @@
   --color-slate-body: #4B5563;
   --color-slate-muted: #6B7280;
 
-  --font-display: var(--font-manrope), "Segoe UI", system-ui, sans-serif;
-  --font-sans: var(--font-inter), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-noto-serif), Georgia, serif;
+  --font-sans: var(--font-noto-sans), system-ui, -apple-system, sans-serif;
   --font-quote: var(--font-newsreader), Georgia, serif;
 
   --shadow-soft: 0 2px 14px rgba(10, 16, 32, 0.06);

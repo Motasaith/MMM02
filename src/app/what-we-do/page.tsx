@@ -26,7 +26,7 @@ export default function WhatWeDoPage() {
         ]}
         title="Eleven programmes, run by people who show up in person"
         lead="Each one exists because a team came back from a district and said the thing we were doing was not enough. None of them charge a patient anything."
-        image="/media/disaster/disaster-06.jpg"
+        image="/media/field/hero-humanitarian-relief.jpg"
       />
 
       <div className="py-24 lg:py-28">
@@ -39,11 +39,11 @@ export default function WhatWeDoPage() {
               <div className="shell-wide">
                 <Reveal>
                   <div className="flex items-center gap-5">
-                    <h2 className="font-display text-[1.6rem] font-extrabold text-[#003475]">
+                    <h2 className="font-display text-[1.85rem] sm:text-[2.15rem] font-black text-[#0A1020]">
                       {group.heading}
                     </h2>
                     <span className="h-px flex-1 bg-slate-200" aria-hidden />
-                    <span className="font-display text-[0.8rem] font-bold text-[#7A7A7A]">
+                    <span className="font-display text-[0.85rem] font-bold text-[#6B7280]">
                       {items.length} {items.length === 1 ? "programme" : "programmes"}
                     </span>
                   </div>

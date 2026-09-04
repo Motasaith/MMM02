@@ -38,7 +38,7 @@ export default function DonatePage() {
         ]}
         title="Give to a specific thing, and we will tell you what it did"
         lead="Every programme has a real unit cost. Choose one, choose an amount, and see exactly what it buys before you send anything."
-        image="/media/ration/ration-01.jpg"
+        image="/media/field/free-medical-camp-medicines.jpg"
       />
 
       {/* Planner */}
@@ -54,10 +54,10 @@ export default function DonatePage() {
           <Reveal>
             <div className="grid gap-8 rounded-2xl bg-surface p-8 lg:grid-cols-12 lg:items-center lg:p-10">
               <div className="lg:col-span-7">
-                <h2 className="font-display text-[1.6rem] font-extrabold text-navy-800">
+                <h2 className="font-display text-[1.85rem] sm:text-[2.15rem] font-black text-[#0A1020]">
                   Zakat eligible programmes
                 </h2>
-                <p className="mt-3 text-[1rem] leading-relaxed text-slate-body">
+                <p className="mt-3 text-[1.04rem] leading-relaxed text-[#4B5563]">
                   Food parcels, winter packages, clean water and free medical treatment for the poor
                   are all applied to households that meet the criteria for Zakat. Tell us when you
                   send it and your gift is kept in a separate pool and distributed accordingly.
@@ -68,9 +68,9 @@ export default function DonatePage() {
                   (x) => (
                     <li
                       key={x}
-                      className="flex items-center gap-3 rounded-xl bg-white px-4 py-3 font-display text-[0.93rem] font-bold text-navy-800"
+                      className="flex items-center gap-3 rounded-xl bg-white px-4.5 py-3.5 font-display text-[0.98rem] font-bold text-[#0A1020] shadow-xs"
                     >
-                      <span className="h-2 w-2 shrink-0 rounded-full bg-magenta-brand" aria-hidden />
+                      <span className="h-2 w-2 shrink-0 rounded-full bg-[#EF3B19]" aria-hidden />
                       {x}
                     </li>
                   ),
@@ -96,16 +96,16 @@ export default function DonatePage() {
                 {allocation.map((a, i) => (
                   <Reveal key={a.label} delay={i * 90} as="li">
                     <div className="flex items-baseline justify-between gap-4">
-                      <span className="font-display text-[1.02rem] font-bold text-[#003475]">
+                      <span className="font-display text-[1.08rem] font-black text-[#0A1020]">
                         {a.label}
                       </span>
-                      <span className="font-display text-[1.5rem] font-extrabold text-[#046BD2]">
+                      <span className="font-display text-[1.6rem] font-black text-[#075BD6]">
                         {a.value}%
                       </span>
                     </div>
                     <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-200">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-[#046BD2] to-[#008DC9] transition-[width] duration-1000 ease-out"
+                        className="h-full rounded-full bg-gradient-to-r from-[#075BD6] to-[#008DC9] transition-[width] duration-1000 ease-out"
                         style={{ width: `${a.value}%` }}
                       />
                     </div>
@@ -115,11 +115,11 @@ export default function DonatePage() {
             </div>
 
             <Reveal delay={100} className="lg:col-span-4 lg:col-start-9">
-              <div className="rounded-2xl border border-blue-100 bg-white p-7 shadow-soft">
-                <h3 className="font-display text-[1.15rem] font-extrabold text-[#003475]">
+              <div className="rounded-2xl border border-blue-100 bg-white p-7 sm:p-8 shadow-soft">
+                <h3 className="font-display text-[1.32rem] font-black text-[#0A1020]">
                   Ask us for the count
                 </h3>
-                <p className="mt-3 text-[0.94rem] leading-relaxed text-[#334155]">
+                <p className="mt-3 text-[0.98rem] leading-relaxed text-[#4B5563]">
                   Send your transfer receipt on WhatsApp and a volunteer will tell you which
                   deployment your gift went into and how many people it reached.
                 </p>
@@ -127,7 +127,7 @@ export default function DonatePage() {
                   href={org.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex rounded-full bg-[#046BD2] px-6 py-3 font-display text-[0.9rem] font-bold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#003475]"
+                  className="mt-6 inline-flex rounded-full bg-[#075BD6] px-6 py-3 font-display text-[0.95rem] font-bold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0649B8]"
                 >
                   Message the team
                 </a>
@@ -149,13 +149,13 @@ export default function DonatePage() {
             {methods.map((m, i) => (
               <Reveal key={m.title} delay={i * 80}>
                 <div className="flex h-full flex-col rounded-2xl bg-white p-7 ring-1 ring-line transition-all duration-400 hover:-translate-y-1 hover:shadow-lift hover:ring-transparent">
-                  <h3 className="font-display text-[1.2rem] font-extrabold text-navy-800">
+                  <h3 className="font-display text-[1.32rem] font-black text-[#0A1020]">
                     {m.title}
                   </h3>
-                  <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-slate-body">
+                  <p className="mt-3 flex-1 text-[0.98rem] leading-relaxed text-[#4B5563]">
                     {m.body}
                   </p>
-                  <p className="mt-5 border-t border-line pt-4 font-display text-[0.9rem] font-bold text-blue-brand">
+                  <p className="mt-5 border-t border-line pt-4 font-display text-[0.95rem] font-bold text-[#075BD6]">
                     {m.detail}
                   </p>
                 </div>

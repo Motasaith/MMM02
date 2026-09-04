@@ -13,22 +13,22 @@ const roles = [
   {
     title: "Doctors and consultants",
     body: "General medicine, paediatrics, ophthalmology, dermatology and orthopaedics are the specialties a camp needs most. A single day given is a district covered.",
-    image: "/media/disaster/disaster-05.jpg",
+    image: "/media/field/free-medical-camp-doctors.jpg",
   },
   {
     title: "Nurses and paramedics",
     body: "Triage, dressings, observations and the entire flow of a camp. Nothing runs without this and it is the hardest role to fill.",
-    image: "/media/medical/medical-01.jpg",
+    image: "/media/field/bls-rescue-1122.jpg",
   },
   {
     title: "Pharmacists",
     body: "Stock planning, dispensing and counselling patients who have never been told how to take a course of antibiotics properly.",
-    image: "/media/medical/medical-45.jpg",
+    image: "/media/field/free-medical-camp-medicines.jpg",
   },
   {
     title: "Students",
     body: "Registration, crowd flow, translation and assisting clinicians. You will be given real responsibility and you will be supervised properly.",
-    image: "/media/disaster/disaster-01.jpg",
+    image: "/media/field/future-healers-mentorship.jpg",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function GetInvolvedPage() {
         ]}
         title="The medicine is fundable. The hands are not."
         lead="Every deployment is capped by how many trained people can take a day away from their own work. If you are one of them, we have a district waiting."
-        image="/media/disaster/disaster-06.jpg"
+        image="/media/field/bls-rescue-1122.jpg"
       />
 
       {/* Roles */}
@@ -93,7 +93,7 @@ export default function GetInvolvedPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {roles.map((r, i) => (
               <Reveal key={r.title} delay={i * 80} amount={0.08}>
-                <article className="group flex h-full overflow-hidden rounded-2xl bg-white ring-1 ring-line transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift hover:ring-transparent">
+                <article className="group flex h-full overflow-hidden rounded-2xl bg-white ring-1 ring-[#DCE2EA] shadow-xs transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lg hover:ring-[#075BD6]/50">
                   <div className="w-[38%] shrink-0 overflow-hidden">
                     <img
                       src={r.image}
@@ -103,11 +103,11 @@ export default function GetInvolvedPage() {
                       className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex flex-col justify-center p-6">
-                    <h3 className="font-display text-[1.18rem] font-extrabold text-navy-800">
+                  <div className="flex flex-col justify-center p-6 sm:p-7">
+                    <h3 className="font-display text-[1.24rem] sm:text-[1.35rem] font-black text-[#0A1020] transition-colors group-hover:text-[#075BD6]">
                       {r.title}
                     </h3>
-                    <p className="mt-2.5 text-[0.93rem] leading-relaxed text-slate-body">
+                    <p className="mt-2.5 text-[0.96rem] leading-relaxed text-[#4B5563]">
                       {r.body}
                     </p>
                   </div>
@@ -131,13 +131,13 @@ export default function GetInvolvedPage() {
             {steps.map((s, i) => (
               <Reveal key={s.n} delay={i * 90} as="li">
                 <div className="h-full rounded-2xl border border-blue-100 bg-white p-8 shadow-soft">
-                  <span className="font-display text-[2.6rem] leading-none font-extrabold text-[#046BD2]/25">
+                  <span className="font-display text-[2.6rem] leading-none font-extrabold text-[#075BD6]/30">
                     {s.n}
                   </span>
-                  <h3 className="mt-4 font-display text-[1.25rem] font-extrabold text-[#003475]">
+                  <h3 className="mt-4 font-display text-[1.32rem] sm:text-[1.42rem] font-black text-[#0A1020]">
                     {s.title}
                   </h3>
-                  <p className="mt-3 text-[0.95rem] leading-relaxed text-[#334155]">{s.body}</p>
+                  <p className="mt-3 text-[0.98rem] leading-relaxed text-[#4B5563]">{s.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -168,11 +168,11 @@ export default function GetInvolvedPage() {
             {partners.map((p, i) => (
               <Reveal key={p.title} delay={i * 80}>
                 <div className="flex h-full flex-col rounded-2xl bg-surface p-7 transition-all duration-400 hover:-translate-y-1 hover:bg-white hover:shadow-lift">
-                  <span className="block h-1 w-10 bg-magenta-brand" aria-hidden />
-                  <h3 className="mt-5 font-display text-[1.15rem] font-extrabold text-navy-800">
+                  <span className="block h-1 w-10 bg-[#EF3B19]" aria-hidden />
+                  <h3 className="mt-5 font-display text-[1.2rem] sm:text-[1.28rem] font-black text-[#0A1020]">
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 flex-1 text-[0.93rem] leading-relaxed text-slate-body">
+                  <p className="mt-2.5 flex-1 text-[0.95rem] leading-relaxed text-[#4B5563]">
                     {p.body}
                   </p>
                 </div>

@@ -46,10 +46,10 @@ export function JoinCta() {
     <section className="relative isolate overflow-hidden bg-gradient-to-br from-[#F3F7FF] via-[#F5F7FA] to-white py-14 sm:py-16 lg:py-20 border-b border-[#DCE2EA]">
       <div className="shell-wide">
         <Reveal className="max-w-3xl">
-          <h2 className="text-[clamp(1.75rem,2.8vw,2.4rem)] leading-tight font-black text-[#0A1020]">
+          <h2 className="font-display text-[clamp(2.1rem,3.4vw,2.85rem)] leading-[1.1] font-black text-[#0A1020]">
             Every camp we run is limited by two things, and neither of them is willingness.
           </h2>
-          <p className="mt-3 text-[1rem] sm:text-[1.05rem] leading-relaxed text-[#4B5563]">
+          <p className="mt-3.5 text-[1.05rem] sm:text-[1.14rem] leading-relaxed text-[#4B5563]">
             It is hands and it is medicine. If you can contribute either, there is a remote district waiting.
           </p>
         </Reveal>
@@ -59,11 +59,11 @@ export function JoinCta() {
             <Reveal key={p.title} delay={i * 80} amount={0.08} className="h-full">
               <Link
                 href={p.href}
-                className="group relative flex h-full flex-col justify-between rounded-2xl border border-[#DCE2EA] bg-white p-6 sm:p-7 shadow-[0_4px_16px_rgba(10,16,32,0.04)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:border-[#075BD6]/50 hover:shadow-[0_20px_40px_-12px_rgba(6,73,184,0.14)]"
+                className="group relative flex h-full flex-col justify-between rounded-2xl border border-[#DCE2EA] bg-white p-6 sm:p-8 shadow-[0_4px_16px_rgba(10,16,32,0.04)] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:border-[#075BD6]/50 hover:shadow-[0_20px_40px_-12px_rgba(6,73,184,0.14)]"
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="rounded-md border border-[#DCE6FB] bg-[#F3F7FF] px-2.5 py-1 text-[0.74rem] font-bold text-[#075BD6]">
+                    <span className="rounded-md border border-[#DCE6FB] bg-[#F3F7FF] px-2.5 py-1 text-[0.76rem] font-bold text-[#075BD6]">
                       {p.badge}
                     </span>
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F5F7FA] text-[#075BD6] transition-all duration-300 group-hover:bg-[#075BD6] group-hover:text-white">
@@ -71,16 +71,16 @@ export function JoinCta() {
                     </div>
                   </div>
 
-                  <h3 className="mt-5 font-display text-[1.2rem] font-extrabold text-[#0A1020] transition-colors group-hover:text-[#075BD6]">
+                  <h3 className="mt-5 font-display text-[1.28rem] sm:text-[1.38rem] font-black text-[#0A1020] transition-colors group-hover:text-[#075BD6]">
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 text-[0.92rem] leading-relaxed text-[#4B5563]">
+                  <p className="mt-3 text-[0.98rem] sm:text-[1.02rem] leading-relaxed text-[#4B5563]">
                     {p.body}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-5 border-t border-[#DCE2EA] flex items-center justify-between">
-                  <span className="font-display text-[0.88rem] font-bold text-[#075BD6] transition-colors group-hover:text-[#0649B8]">
+                <div className="mt-7 pt-5 border-t border-[#DCE2EA] flex items-center justify-between">
+                  <span className="font-display text-[0.96rem] font-bold text-[#075BD6] transition-colors group-hover:text-[#0649B8]">
                     {p.cta}
                   </span>
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F5F7FA] text-[#075BD6] transition-all duration-300 group-hover:bg-[#075BD6] group-hover:text-white group-hover:translate-x-1">

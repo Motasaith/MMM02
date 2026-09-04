@@ -1,20 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Manrope, Newsreader } from "next/font/google";
+import { Noto_Sans, Noto_Serif, Newsreader } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { org } from "@/data/site";
 import "./globals.css";
 
-const inter = Inter({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-noto-sans",
   display: "swap",
 });
 
-const manrope = Manrope({
+const notoSerif = Noto_Serif({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
-  variable: "--font-manrope",
+  weight: ["500", "600", "700", "800", "900"],
+  variable: "--font-noto-serif",
   display: "swap",
 });
 
@@ -54,6 +55,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@MMMPakOfficial",
   },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
   robots: { index: true, follow: true },
 };
 
@@ -85,7 +90,7 @@ const schema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable} ${newsreader.variable}`}>
+    <html lang="en" className={`${notoSans.variable} ${notoSerif.variable} ${newsreader.variable}`}>
       <body className="overflow-x-hidden antialiased">
         <a
           href="#main"

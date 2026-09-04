@@ -62,17 +62,17 @@ export function ProgramCard({
       </div>
 
       {/* Content Area */}
-      <div className={`flex flex-col flex-1 ${feature ? "p-6 sm:p-7" : "p-5 sm:p-6"}`}>
+      <div className={`flex flex-col flex-1 ${feature ? "p-6 sm:p-8" : "p-5 sm:p-6"}`}>
         <h3
-          className={`font-display font-extrabold text-[#0A1020] transition-colors duration-200 group-hover:text-[#075BD6] ${
-            feature ? "text-[1.38rem]" : "text-[1.15rem]"
+          className={`font-display font-black text-[#0A1020] transition-colors duration-200 group-hover:text-[#075BD6] ${
+            feature ? "text-[1.48rem] sm:text-[1.72rem] leading-tight" : "text-[1.22rem] sm:text-[1.32rem] leading-snug"
           }`}
         >
           {program.title}
         </h3>
         <p
-          className={`mt-2.5 leading-relaxed text-[#4B5563] ${
-            feature ? "text-[0.98rem]" : "text-[0.88rem]"
+          className={`mt-3 leading-relaxed text-[#4B5563] ${
+            feature ? "text-[1.02rem] sm:text-[1.08rem]" : "text-[0.92rem] sm:text-[0.96rem]"
           }`}
         >
           {program.summary}
@@ -82,8 +82,8 @@ export function ProgramCard({
           <dl className="mt-6 grid gap-x-5 gap-y-3.5 border-t border-[#DCE2EA] pt-5 sm:grid-cols-3">
             {program.highlights.map((h) => (
               <div key={h.label}>
-                <dt className="text-[0.76rem] leading-snug text-[#6B7280]">{h.label}</dt>
-                <dd className="mt-0.5 font-display text-[1rem] font-black text-[#0A1020]">
+                <dt className="text-[0.8rem] leading-snug text-[#6B7280]">{h.label}</dt>
+                <dd className="mt-1 font-display text-[1.12rem] font-black text-[#0A1020]">
                   {h.value}
                 </dd>
               </div>
@@ -95,7 +95,7 @@ export function ProgramCard({
         <div className="mt-auto pt-6 border-t border-[#DCE2EA]/80 flex items-center justify-between gap-3">
           <Link
             href="/donate"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#DCE2EA] bg-[#F5F7FA] px-3 py-2 text-xs font-bold text-[#0A1020] transition-colors hover:border-[#EF3B19] hover:bg-[#EF3B19]/10 hover:text-[#EF3B19]"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-[#DCE2EA] bg-[#F5F7FA] px-3.5 py-2 font-display text-xs sm:text-[0.82rem] font-bold text-[#0A1020] transition-colors hover:border-[#EF3B19] hover:bg-[#EF3B19]/10 hover:text-[#EF3B19]"
           >
             <svg className="h-3.5 w-3.5 text-[#EF3B19]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
@@ -105,7 +105,7 @@ export function ProgramCard({
 
           <Link
             href={`/what-we-do/${program.slug}`}
-            className="inline-flex items-center gap-1.5 rounded-lg bg-[#075BD6] px-4 py-2 font-display text-xs sm:text-[0.82rem] font-bold text-white shadow-xs transition-all duration-200 hover:bg-[#0649B8] hover:shadow-sm group/btn"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-[#075BD6] px-4.5 py-2 font-display text-xs sm:text-[0.85rem] font-bold text-white shadow-xs transition-all duration-200 hover:bg-[#0649B8] hover:shadow-sm group/btn"
           >
             <span>Learn More</span>
             <Arrow className="h-3 w-3 transition-transform duration-200 group-hover/btn:translate-x-1" />

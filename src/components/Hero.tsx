@@ -184,41 +184,41 @@ export function Hero() {
                     </span>
                   </div>
 
-                  {/* Islamic Teaching / Quranic Quote with Red Accent */}
+                  {/* Islamic Teaching / Quranic Quote with Red Accent (Newsreader font) */}
                   <div className="border-l-2 border-[#EF3B19] pl-3.5 sm:pl-4">
-                    <p className="font-quote text-[1.05rem] sm:text-[1.2rem] lg:text-[1.32rem] leading-snug italic font-medium text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.9)]">
+                    <p className="font-quote text-[1.12rem] sm:text-[1.28rem] lg:text-[1.42rem] leading-snug italic font-normal text-white [text-shadow:0_2px_14px_rgba(0,0,0,0.9)]">
                       "{s.quote}"
                     </p>
-                    <span className="mt-1 block text-xs sm:text-[0.82rem] font-bold uppercase tracking-wider text-slate-300 [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]">
+                    <span className="mt-1 block text-xs sm:text-[0.84rem] font-bold uppercase tracking-wider text-slate-300 [text-shadow:0_1px_8px_rgba(0,0,0,0.8)]">
                       — {s.quoteSource}
                     </span>
                   </div>
 
-                  {/* Headline with Brand Red Highlight */}
-                  <h1 className="mt-4 font-display text-[clamp(1.95rem,3.5vw,3rem)] font-black leading-[1.12] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.85)]">
+                  {/* Headline with Brand Red Highlight (Noto Serif font) */}
+                  <h1 className="mt-5 font-display text-[clamp(2.35rem,4.4vw,3.75rem)] font-black leading-[1.08] text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.85)]">
                     {s.headline}{" "}
                     <span className="text-[#EF3B19] drop-shadow-[0_2px_14px_rgba(239,59,25,0.45)]">
                       {s.highlight}
                     </span>
                   </h1>
 
-                  {/* Subtext */}
-                  <p className="mt-3.5 max-w-xl text-[0.96rem] sm:text-[1.04rem] leading-relaxed text-slate-200 [text-shadow:0_1px_12px_rgba(0,0,0,0.8)]">
+                  {/* Subtext (Noto Sans font) */}
+                  <p className="mt-4 max-w-2xl text-[1.04rem] sm:text-[1.14rem] leading-relaxed text-slate-100 [text-shadow:0_1px_12px_rgba(0,0,0,0.85)]">
                     {s.subtext}
                   </p>
 
                   {/* Dual Call To Actions (UNDA Electric Blue + Glass Outline) */}
-                  <div className="mt-7 flex flex-wrap items-center gap-3.5">
+                  <div className="mt-8 flex flex-wrap items-center gap-3.5">
                     <Link
                       href={s.primaryCta.href}
-                      className="group inline-flex items-center gap-2 rounded-full bg-[#075BD6] px-6 py-3.5 font-display text-[0.92rem] font-bold text-white shadow-[0_12px_24px_-8px_rgba(7,91,214,0.7)] transition-all duration-300 hover:bg-[#0649B8] hover:shadow-[0_14px_28px_-6px_rgba(6,73,184,0.8)] sm:px-7"
+                      className="group inline-flex items-center gap-2 rounded-full bg-[#075BD6] px-7 py-3.5 font-display text-[0.98rem] font-bold text-white shadow-[0_12px_24px_-8px_rgba(7,91,214,0.7)] transition-all duration-300 hover:bg-[#0649B8] hover:shadow-[0_14px_28px_-6px_rgba(6,73,184,0.8)] sm:px-8"
                     >
                       <span>{s.primaryCta.label}</span>
                       <Arrow className="transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
                     </Link>
                     <Link
                       href={s.secondaryCta.href}
-                      className="group inline-flex items-center gap-2 rounded-full border border-white/50 bg-black/35 px-5 py-3.5 font-display text-[0.92rem] font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-white hover:bg-white/20 sm:px-6"
+                      className="group inline-flex items-center gap-2 rounded-full border border-white/50 bg-black/35 px-6 py-3.5 font-display text-[0.98rem] font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-white hover:bg-white/20 sm:px-7"
                     >
                       <span>{s.secondaryCta.label}</span>
                       <Arrow className="transition-transform duration-300 ease-out group-hover:translate-x-1.5" />

@@ -47,7 +47,7 @@ export default function DisasterResponsePage() {
         ]}
         title="We move in the first week, and we are still there in the third month"
         lead="Flood response in Pakistan is not one operation. It is four, run in sequence, and most organisations only fund the first two."
-        image="/media/disaster/disaster-09.jpg"
+        image="/media/field/hero-disaster-response.jpg"
       />
 
       {/* Numbers */}
@@ -62,13 +62,13 @@ export default function DisasterResponsePage() {
               <Reveal key={x.k} delay={i * 80} as="div" className="p-7">
                 <dt className="sr-only">{x.k}</dt>
                 <dd>
-                  <span className="font-display text-[2.4rem] leading-none font-extrabold text-navy-800">
+                  <span className="font-display text-[2.6rem] sm:text-[3rem] leading-none font-black text-[#0A1020]">
                     <CountUp to={x.v} suffix={x.s} />
                   </span>
-                  <span className="mt-3 block font-display text-[0.97rem] font-bold text-navy-800">
+                  <span className="mt-3 block font-display text-[1.05rem] font-bold text-[#0A1020]">
                     {x.k}
                   </span>
-                  <span className="mt-1 block text-[0.86rem] text-slate-muted">{x.d}</span>
+                  <span className="mt-1 block text-[0.9rem] text-[#6B7280]">{x.d}</span>
                 </dd>
               </Reveal>
             ))}
@@ -94,13 +94,13 @@ export default function DisasterResponsePage() {
                   >
                     {p.n}
                   </span>
-                  <p className="relative font-display text-[1rem] font-bold text-magenta-brand">
+                  <p className="relative font-display text-[1.05rem] font-bold text-[#EF3B19]">
                     {p.hours}
                   </p>
-                  <h3 className="relative mt-2.5 font-display text-[1.35rem] font-extrabold text-navy-800">
+                  <h3 className="relative mt-2.5 font-display text-[1.4rem] sm:text-[1.5rem] font-black text-[#0A1020]">
                     {p.title}
                   </h3>
-                  <p className="relative mt-3 text-[0.98rem] leading-relaxed text-slate-body">
+                  <p className="relative mt-3 text-[1.02rem] leading-relaxed text-[#4B5563]">
                     {p.body}
                   </p>
                 </div>

@@ -576,40 +576,40 @@ export const allocation = [
 
 export const reports = [
   {
-    slug: "taunsa-flood-response",
-    title: "Four medical camps in a week as the Indus rises at Taunsa Sharif",
-    place: "Taunsa Sharif, Dera Ghazi Khan",
-    kind: "Flood response",
-    excerpt:
-      "Teams led by General Secretary Dr Nasir Hamdani moved into Tehsil Taunsa Sharif as the water came up, running camps out of whatever building still had a dry floor.",
-    image: "/media/disaster/disaster-11.jpg",
-  },
-  {
-    slug: "mangrotha-village",
-    title: "Mangrotha, a village on the edge of Taunsa city, taken by the flood",
-    place: "Mangrotha, South Punjab",
-    kind: "Flood response",
-    excerpt:
-      "Homes built of mud and cane do not survive standing water. Our teams reached Mangrotha with rations, clean water and a clinical team while the ground was still soft.",
-    image: "/media/disaster/disaster-09.jpg",
-  },
-  {
     slug: "five-hundred-patients",
     title: "More than 500 patients given free consultation and medicine in one deployment",
-    place: "Dera Ghazi Khan",
-    kind: "Medical camps",
+    place: "Dera Ghazi Khan & South Punjab",
+    kind: "Medical Camps",
     excerpt:
-      "Senior doctors ran four camps back to back. Every consultation, every test we could carry and every prescription was free at the point of care.",
-    image: "/media/disaster/disaster-06.jpg",
+      "Senior doctors ran four camps back to back. Every consultation, every diagnostic test, and every full course of medicine was provided completely free at the point of care.",
+    image: "/media/field/free-medical-camp-medicines.jpg",
   },
   {
-    slug: "rations-south-punjab",
-    title: "Rations reach flood affected families across South Punjab and Balochistan",
-    place: "South Punjab and Balochistan",
-    kind: "Relief distribution",
+    slug: "taunsa-flood-response",
+    title: "Emergency boat deployment and medical relief along the rising Indus",
+    place: "Taunsa Sharif, Dera Ghazi Khan",
+    kind: "Disaster Response",
     excerpt:
-      "Distribution ran through local volunteers who knew the households, not through a list handed down from a city office.",
-    image: "/media/disaster/disaster-13.jpg",
+      "Rapid response disaster teams led by senior clinicians mobilized emergency relief boats, setting up frontline triage and treating waterborne illnesses where roads had washed out.",
+    image: "/media/field/hero-disaster-response.jpg",
+  },
+  {
+    slug: "surgical-camp-central-jail",
+    title: "Free Surgical Camp at Central Jail Kot Lakhpat and District Facilities",
+    place: "Kot Lakhpat, Lahore",
+    kind: "Surgical Mission",
+    excerpt:
+      "Volunteer consultant surgeons conducted vital procedures and provided specialized medication for incarcerated and underprivileged patients who otherwise had zero access to surgery.",
+    image: "/media/field/surgical-camp-kotlakhpat.jpg",
+  },
+  {
+    slug: "bls-rescue-1122",
+    title: "Emergency First Responder Training in collaboration with Punjab Rescue 1122",
+    place: "Lahore & Regional Hubs",
+    kind: "Responders Training",
+    excerpt:
+      "Hands-on trauma management, BLS, haemorrhage control, and disaster triage workshops training volunteers to act as certified frontline lifesavers in emergencies.",
+    image: "/media/field/bls-rescue-1122.jpg",
   },
 ];
 

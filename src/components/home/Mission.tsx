@@ -27,11 +27,11 @@ export function Mission() {
                 </svg>
                 <span>Foundational Creed</span>
               </div>
-              <p className="mt-2 font-quote text-[0.98rem] leading-snug text-[#0A1020] italic">
+              <p className="mt-2.5 font-quote text-[1.05rem] sm:text-[1.12rem] leading-snug text-[#0A1020] italic">
                 To become dynamic Muslim healthcare professionals who pioneer social change through
                 knowledge, wisdom and practice.
               </p>
-              <p className="mt-3 text-[0.78rem] font-bold text-[#6B7280]">
+              <p className="mt-3 text-[0.82rem] font-bold text-[#6B7280]">
                 Drafted 2005 • Over 20 years of service
               </p>
             </div>
@@ -41,18 +41,18 @@ export function Mission() {
         {/* Copy column */}
         <div className="lg:col-span-7 lg:pl-4">
           <Reveal>
-            <h2 className="text-[clamp(1.75rem,2.8vw,2.4rem)] leading-tight font-black text-[#0A1020]">
+            <h2 className="font-display text-[clamp(2.1rem,3.4vw,2.85rem)] leading-[1.1] font-black text-[#0A1020]">
               A hospital cannot come to the village. A doctor can.
             </h2>
           </Reveal>
 
-          <Reveal delay={80} className="rich mt-5 max-w-2xl text-[0.98rem] leading-relaxed text-[#4B5563]">
+          <Reveal delay={80} className="rich mt-6 max-w-2xl text-[1.04rem] sm:text-[1.12rem] leading-relaxed text-[#4B5563]">
             <p>
               Muslim Medical Mission began with a dedicated group of Pakistani doctors who kept meeting the
               same problem. The medicine existed, the expertise existed, and none of it was reaching
               the families who needed it most.
             </p>
-            <p>
+            <p className="mt-3">
               Since our founding response following the October 2005 Kashmir earthquake, the answer has not changed.
               We load a volunteer medical team into a vehicle, drive to the district that has been waiting longest,
               and treat everyone who comes, free, until the medicine runs out.
@@ -60,11 +60,11 @@ export function Mission() {
           </Reveal>
 
           {/* Values with interactive row hover */}
-          <ul className="mt-8 divide-y divide-[#DCE2EA] border-t border-[#DCE2EA]">
+          <ul className="mt-9 divide-y divide-[#DCE2EA] border-t border-[#DCE2EA]">
             {values.map((v, i) => (
-              <Reveal as="li" key={v.key} delay={i * 60} className="group rounded-xl p-3 transition-colors duration-200 hover:bg-[#F3F7FF]">
+              <Reveal as="li" key={v.key} delay={i * 60} className="group rounded-xl p-3.5 transition-colors duration-200 hover:bg-[#F3F7FF]">
                 <div className="grid gap-2 sm:grid-cols-12 sm:gap-6 items-center">
-                  <h3 className="font-display text-[0.98rem] font-extrabold text-[#0A1020] sm:col-span-4 transition-colors group-hover:text-[#075BD6]">
+                  <h3 className="font-display text-[1.08rem] sm:text-[1.15rem] font-black text-[#0A1020] sm:col-span-4 transition-colors group-hover:text-[#075BD6]">
                     <span className="inline-flex items-center gap-2.5">
                       <span
                         className="h-2 w-2 rounded-full bg-[#EF3B19] transition-transform duration-300 group-hover:scale-125"
@@ -73,7 +73,7 @@ export function Mission() {
                       {v.key}
                     </span>
                   </h3>
-                  <p className="text-[0.92rem] leading-relaxed text-[#4B5563] sm:col-span-8">
+                  <p className="text-[0.98rem] sm:text-[1.02rem] leading-relaxed text-[#4B5563] sm:col-span-8">
                     {v.body}
                   </p>
                 </div>

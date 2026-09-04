@@ -29,7 +29,7 @@ export default function MediaPage() {
         ]}
         title="What the work looks like when nobody is posing for it"
         lead="Photographs taken by our own teams on deployment, and reports written by the people who were standing in them."
-        image="/media/disaster/disaster-13.jpg"
+        image="/media/field/national-conference-stage.jpg"
       />
 
       {/* Reports */}
@@ -43,7 +43,7 @@ export default function MediaPage() {
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {reports.map((r, i) => (
               <Reveal key={r.slug} delay={i * 80} amount={0.08}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-line transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift hover:ring-transparent">
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-soft ring-1 ring-[#DCE2EA] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift hover:ring-[#075BD6]/50">
                   <div className="aspect-[16/9] overflow-hidden">
                     <img
                       src={r.image}
@@ -53,16 +53,16 @@ export default function MediaPage() {
                       className="h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col p-7">
-                    <h3 className="font-display text-[1.28rem] leading-snug font-extrabold text-navy-800">
+                  <div className="flex flex-1 flex-col p-7 sm:p-8">
+                    <h3 className="font-display text-[1.35rem] sm:text-[1.48rem] leading-tight font-black text-[#0A1020] transition-colors group-hover:text-[#075BD6]">
                       {r.title}
                     </h3>
-                    <p className="mt-3 flex-1 text-[0.96rem] leading-relaxed text-slate-body">
+                    <p className="mt-3 flex-1 text-[1rem] leading-relaxed text-[#4B5563]">
                       {r.excerpt}
                     </p>
-                    <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.88rem] text-slate-muted">
-                      <span className="font-semibold text-magenta-brand">{r.kind}</span>
-                      <span className="h-3 w-px bg-line" aria-hidden />
+                    <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.88rem] text-[#6B7280]">
+                      <span className="font-bold text-[#EF3B19]">{r.kind}</span>
+                      <span className="h-3 w-px bg-[#DCE2EA]" aria-hidden />
                       <span>{r.place}</span>
                     </p>
                   </div>

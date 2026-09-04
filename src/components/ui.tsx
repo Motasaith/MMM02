@@ -103,13 +103,13 @@ export function SectionHead({
     return (
       <Reveal className={`max-w-3xl ${className}`}>
         <h2
-          className={`text-[clamp(1.55rem,2.6vw,2.15rem)] leading-tight font-black ${isDark ? "text-[#0A1020]" : "text-white"}`}
+          className={`font-display text-[clamp(1.95rem,3.4vw,2.75rem)] leading-[1.1] font-black ${isDark ? "text-[#0A1020]" : "text-white"}`}
         >
           {title}
         </h2>
         {lead ? (
           <p
-            className={`mt-4 text-[0.96rem] leading-relaxed sm:text-[1.02rem] ${
+            className={`mt-4 text-[1.04rem] leading-relaxed sm:text-[1.12rem] ${
               isDark ? "text-[#4B5563]" : "text-slate-100"
             }`}
           >
@@ -119,7 +119,7 @@ export function SectionHead({
         {link ? (
           <Link
             href={link.href}
-            className={`group mt-5 inline-flex items-center gap-2 font-display text-[0.9rem] font-bold ${
+            className={`group mt-5 inline-flex items-center gap-2 font-display text-[0.96rem] font-bold ${
               isDark ? "text-[#075BD6]" : "text-[#EF3B19]"
             }`}
           >
@@ -134,9 +134,9 @@ export function SectionHead({
   return (
     <div className={className}>
       <div className="grid gap-4 md:grid-cols-12 md:gap-8 md:items-end">
-        <Reveal className="md:col-span-6 lg:col-span-6">
+        <Reveal className="md:col-span-6 lg:col-span-7">
           <h2
-            className={`text-[clamp(1.55rem,2.6vw,2.15rem)] leading-tight font-black ${
+            className={`font-display text-[clamp(1.95rem,3.4vw,2.75rem)] leading-[1.1] font-black ${
               isDark ? "text-[#0A1020]" : "text-white"
             }`}
           >
@@ -144,10 +144,10 @@ export function SectionHead({
           </h2>
         </Reveal>
         {(lead || link) && (
-          <Reveal delay={90} className="md:col-span-6 lg:col-span-5 lg:col-start-8">
+          <Reveal delay={90} className="md:col-span-6 lg:col-span-5">
             {lead ? (
               <p
-                className={`text-[0.96rem] leading-relaxed sm:text-[1.02rem] ${
+                className={`text-[1.04rem] leading-relaxed sm:text-[1.12rem] ${
                   isDark ? "text-[#4B5563]" : "text-slate-100"
                 }`}
               >
@@ -157,7 +157,7 @@ export function SectionHead({
             {link ? (
               <Link
                 href={link.href}
-                className={`group mt-4 inline-flex items-center gap-2 font-display text-[0.9rem] font-bold ${
+                className={`group mt-4 inline-flex items-center gap-2 font-display text-[0.96rem] font-bold ${
                   isDark ? "text-[#075BD6]" : "text-[#EF3B19]"
                 }`}
               >
@@ -189,7 +189,7 @@ export function PageHeader({
   crumb: { label: string; href: string }[];
 }) {
   return (
-    <header className="relative isolate overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F0F6FC] via-[#F8FAFC] to-white pt-30 pb-14 md:pt-34 md:pb-18">
+    <header className="relative isolate overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F0F6FC] via-[#F8FAFC] to-white pt-32 pb-16 md:pt-36 md:pb-20">
       <div className="absolute inset-0 -z-10">
         {image ? (
           <img
@@ -213,11 +213,11 @@ export function PageHeader({
 
       <div className="shell">
         <nav aria-label="Breadcrumb">
-          <ol className="flex flex-wrap items-center gap-2 text-[0.84rem] font-semibold text-[#7A7A7A]">
+          <ol className="flex flex-wrap items-center gap-2 text-[0.88rem] font-semibold text-[#6B7280]">
             {crumb.map((c, i) => (
               <li key={c.href} className="flex items-center gap-2">
                 {i > 0 && <span className="text-slate-300">/</span>}
-                <Link href={c.href} className="transition-colors hover:text-[#046BD2]">
+                <Link href={c.href} className="transition-colors hover:text-[#075BD6]">
                   {c.label}
                 </Link>
               </li>
@@ -225,8 +225,8 @@ export function PageHeader({
           </ol>
         </nav>
 
-        <h1 className="mt-5 max-w-3xl text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.12] font-extrabold text-[#003475] tracking-tight">{title}</h1>
-        <p className="mt-4 max-w-2xl text-[0.98rem] leading-relaxed text-[#334155] sm:text-[1.04rem]">{lead}</p>
+        <h1 className="mt-5 max-w-3xl font-display text-[clamp(2.15rem,3.8vw,3.15rem)] leading-[1.08] font-black text-[#0A1020] tracking-tight">{title}</h1>
+        <p className="mt-4 max-w-2xl text-[1.05rem] leading-relaxed text-[#4B5563] sm:text-[1.14rem]">{lead}</p>
       </div>
     </header>
   );

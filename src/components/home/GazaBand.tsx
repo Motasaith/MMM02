@@ -21,10 +21,10 @@ export function GazaBand() {
       <div className="relative">
         <div className="shell-wide grid gap-10 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-7">
-            <h2 className="text-[clamp(1.75rem,2.8vw,2.4rem)] leading-tight font-black text-[#0A1020]">
+            <h2 className="font-display text-[clamp(2.1rem,3.4vw,2.85rem)] leading-[1.1] font-black text-[#0A1020]">
               The same teams, four thousand kilometres away
             </h2>
-            <p className="mt-4 max-w-2xl text-[1rem] leading-relaxed text-[#4B5563] sm:text-[1.05rem]">
+            <p className="mt-4 max-w-2xl text-[1.05rem] leading-relaxed text-[#4B5563] sm:text-[1.12rem]">
               Our Gaza operation runs on the logic that keeps people alive when a health system has
               stopped functioning. Water before medicine, food before comfort, and a heavy quilt
               before the cold arrives rather than after it.
@@ -38,10 +38,10 @@ export function GazaBand() {
                 { k: "Food", v: "Parcels & hot meals", icon: "🍲" },
                 { k: "Winter", v: "Quilts & coats", icon: "🧥" },
               ].map((x) => (
-                <div key={x.k} className="group rounded-xl p-2.5 transition-colors duration-200 hover:bg-white">
-                  <span className="text-base" aria-hidden>{x.icon}</span>
-                  <dt className="mt-1 font-display text-[0.94rem] font-bold text-[#075BD6]">{x.k}</dt>
-                  <dd className="mt-0.5 text-xs font-medium leading-snug text-[#4B5563]">{x.v}</dd>
+                <div key={x.k} className="group rounded-xl p-3 transition-colors duration-200 hover:bg-white">
+                  <span className="text-lg" aria-hidden>{x.icon}</span>
+                  <dt className="mt-1 font-display text-[1rem] font-bold text-[#075BD6]">{x.k}</dt>
+                  <dd className="mt-0.5 text-xs sm:text-[0.82rem] font-medium leading-snug text-[#4B5563]">{x.v}</dd>
                 </div>
               ))}
             </dl>
@@ -49,14 +49,14 @@ export function GazaBand() {
             <div className="mt-6 flex flex-wrap items-center gap-4">
               <Link
                 href="/what-we-do/gaza-field-clinics"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#075BD6] px-6 py-3 font-display text-[0.9rem] font-bold text-white shadow-sm transition-all duration-300 hover:bg-[#0649B8] hover:shadow-md"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#075BD6] px-6 py-3.5 font-display text-[0.96rem] font-bold text-white shadow-sm transition-all duration-300 hover:bg-[#0649B8] hover:shadow-md"
               >
                 <span>Support the Gaza relief effort</span>
                 <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
               </Link>
               <Link
                 href="/donate"
-                className="font-display text-[0.88rem] font-bold text-[#075BD6] hover:text-[#0649B8] transition-colors underline underline-offset-4"
+                className="font-display text-[0.92rem] font-bold text-[#075BD6] hover:text-[#0649B8] transition-colors underline underline-offset-4"
               >
                 Direct emergency bank transfer
               </Link>

@@ -47,7 +47,7 @@ export default function AboutPage() {
         ]}
         title="A volunteer network of Muslim healthcare professionals"
         lead="No paid fundraising arm, no field office in a capital city. Doctors, paramedics, pharmacists and students who take leave from their own jobs to go where the clinic is not."
-        image="/media/disaster/disaster-01.jpg"
+        image="/media/field/hero-humanitarian-relief.jpg"
       />
 
       {/* Story */}
@@ -55,26 +55,26 @@ export default function AboutPage() {
         <div className="shell-wide grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Reveal>
-              <h2 className="text-[clamp(1.55rem,2.6vw,2.15rem)] leading-tight font-extrabold text-[#003475]">
+              <h2 className="font-display text-[clamp(2.05rem,3.4vw,2.85rem)] leading-[1.1] font-black text-[#0A1020]">
                 The problem was never the medicine
               </h2>
             </Reveal>
-            <div className="rich mt-5 text-[0.96rem] sm:text-[1.02rem] leading-relaxed">
+            <div className="rich mt-6 text-[1.04rem] sm:text-[1.12rem] leading-relaxed text-[#4B5563]">
               <Reveal as="p" delay={60}>
                 Pakistan trains excellent doctors. It has pharmaceutical manufacturing, teaching
                 hospitals and a diaspora of specialists. What it does not have is a way of getting
                 any of that to a village four hours from a metalled road.
               </Reveal>
-              <Reveal as="p" delay={100}>
+              <Reveal as="p" delay={100} className="mt-4">
                 Muslim Medical Mission was formed to close that gap by the least sophisticated means
                 available. We take the doctor to the village. We carry the medicine with us. We
                 charge nothing, we treat whoever arrives, and we record what we did so the next
                 deployment is better planned than the last.
               </Reveal>
-              <Reveal as="p" delay={140}>
+              <Reveal as="p" delay={140} className="mt-4">
                 The organisation has stayed deliberately light. Almost everyone involved is a
                 practising clinician giving time they do not really have, which is why{" "}
-                <strong>the overwhelming share of every donation goes into the field</strong> rather
+                <strong className="text-[#0A1020]">the overwhelming share of every donation goes into the field</strong> rather
                 than into running the organisation that sends it.
               </Reveal>
             </div>
@@ -82,16 +82,16 @@ export default function AboutPage() {
 
           <Reveal from="right" className="lg:col-span-4 lg:col-start-9">
             <img
-              src="/media/brand/mmm-lahore-2015.jpg"
-              alt="Muslim Medical Mission team gathered in Lahore"
-              className="w-full rounded-2xl object-cover"
+              src="/media/field/hero-national-conference.jpg"
+              alt="Muslim Medical Mission National Conference"
+              className="w-full rounded-2xl object-cover shadow-md"
               loading="lazy"
             />
-            <div className="mt-5 rounded-2xl border border-slate-200/80 bg-surface p-5">
-              <p className="font-quote text-[1.1rem] leading-snug text-navy-800 italic">
+            <div className="mt-5 rounded-2xl border border-slate-200/80 bg-surface p-6">
+              <p className="font-quote text-[1.18rem] leading-snug text-[#0A1020] italic">
                 {org.motto}
               </p>
-              <p className="mt-2.5 text-[0.85rem] text-slate-muted">
+              <p className="mt-2.5 text-[0.88rem] text-[#6B7280]">
                 The words the organisation was founded on, and the test applied to every deployment
                 since.
               </p>
@@ -121,9 +121,9 @@ export default function AboutPage() {
               },
             ].map((x, i) => (
               <Reveal key={x.k} delay={i * 90}>
-                <div className="h-full rounded-2xl border border-blue-100 bg-white p-6 sm:p-7 shadow-soft">
-                  <h3 className="font-display text-[1.15rem] font-extrabold text-[#046BD2]">{x.k}</h3>
-                  <p className="mt-4 font-quote text-[1.12rem] sm:text-[1.2rem] leading-snug text-[#003475] italic">
+                <div className="h-full rounded-2xl border border-blue-100 bg-white p-7 shadow-soft">
+                  <h3 className="font-display text-[1.25rem] font-black text-[#075BD6]">{x.k}</h3>
+                  <p className="mt-4 font-quote text-[1.18rem] sm:text-[1.28rem] leading-snug text-[#0A1020] italic">
                     {x.v}
                   </p>
                 </div>
@@ -145,13 +145,13 @@ export default function AboutPage() {
             {values.map((v, i) => (
               <Reveal key={v.key} delay={i * 80} as="li">
                 <div className="h-full rounded-2xl bg-[#F0F5FA] border border-slate-200/80 p-6">
-                  <span className="font-display text-[2.2rem] leading-none font-extrabold text-[#046BD2]/25">
+                  <span className="font-display text-[2.4rem] leading-none font-extrabold text-[#075BD6]/25">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-3 font-display text-[1.1rem] font-extrabold text-navy-800">
+                  <h3 className="mt-3 font-display text-[1.18rem] font-black text-[#0A1020]">
                     {v.key}
                   </h3>
-                  <p className="mt-2 text-[0.91rem] leading-relaxed text-slate-body">{v.body}</p>
+                  <p className="mt-2 text-[0.96rem] leading-relaxed text-[#4B5563]">{v.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -171,13 +171,13 @@ export default function AboutPage() {
             {timeline.map((t, i) => (
               <Reveal key={t.year} delay={i * 70} as="li" className="relative pb-8 last:pb-0">
                 <span
-                  className="absolute top-1.5 -left-[33px] h-3.5 w-3.5 rounded-full border-4 border-white bg-[#046BD2] sm:-left-[49px]"
+                  className="absolute top-1.5 -left-[33px] h-3.5 w-3.5 rounded-full border-4 border-white bg-[#075BD6] sm:-left-[49px]"
                   aria-hidden
                 />
-                <p className="font-display text-[1.35rem] leading-none font-extrabold text-[#046BD2]">
+                <p className="font-display text-[1.45rem] leading-none font-black text-[#075BD6]">
                   {t.year}
                 </p>
-                <h3 className="mt-2 font-display text-[1.15rem] font-extrabold text-[#003475]">
+                <h3 className="mt-2 font-display text-[1.24rem] font-black text-[#0A1020]">
                   {t.title}
                 </h3>
                 <p className="mt-2 max-w-2xl text-[0.96rem] leading-relaxed text-slate-body">
