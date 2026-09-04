@@ -111,10 +111,10 @@ export default function DisasterResponsePage() {
       </section>
 
       {/* Field record */}
-      <section className="bg-navy-900 py-24 lg:py-28">
+      <section className="border-y border-slate-200/80 bg-gradient-to-b from-[#F0F7FF] via-[#F8FAFC] to-white py-24 lg:py-28">
         <div className="shell-wide">
           <SectionHead
-            tone="light"
+            tone="dark"
             title="The record from the last flood"
             lead="Places, not percentages. These are the districts our teams worked in and what they did there."
           />
@@ -122,22 +122,22 @@ export default function DisasterResponsePage() {
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {reports.map((r, i) => (
               <Reveal key={r.slug} delay={i * 80} amount={0.08}>
-                <article className="group h-full overflow-hidden rounded-2xl border border-white/12 bg-white/[0.04] transition-all duration-400 hover:-translate-y-1 hover:border-white/25">
+                <article className="group h-full overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-soft transition-all duration-400 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lift">
                   <div className="aspect-[16/9] overflow-hidden">
                     <img
                       src={r.image}
                       alt=""
                       aria-hidden
                       loading="lazy"
-                      className="h-full w-full object-cover opacity-90 transition-transform duration-[900ms] group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-[900ms] group-hover:scale-105"
                     />
                   </div>
                   <div className="p-7">
-                    <h3 className="font-display text-[1.2rem] leading-snug font-extrabold text-white">
+                    <h3 className="font-display text-[1.2rem] leading-snug font-extrabold text-[#003475] transition-colors group-hover:text-[#046BD2]">
                       {r.title}
                     </h3>
-                    <p className="mt-3 text-[0.93rem] leading-relaxed text-navy-100">{r.excerpt}</p>
-                    <p className="mt-4 text-[0.9rem] font-semibold text-cyan-accent">{r.place}</p>
+                    <p className="mt-3 text-[0.93rem] leading-relaxed text-[#334155]">{r.excerpt}</p>
+                    <p className="mt-4 text-[0.9rem] font-semibold text-[#046BD2]">{r.place}</p>
                   </div>
                 </article>
               </Reveal>
@@ -149,7 +149,7 @@ export default function DisasterResponsePage() {
               <Button href="/donate" variant="donate">
                 Fund the next deployment
               </Button>
-              <Button href="/get-involved" variant="ghost">
+              <Button href="/get-involved" variant="outline">
                 Join a response team
               </Button>
             </div>

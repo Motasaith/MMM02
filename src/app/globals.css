@@ -6,46 +6,64 @@
  * Muslim Medical Mission crescent logo. The navy scale carries the structure.
  * ------------------------------------------------------------------ */
 @theme {
-  --color-navy-950: #0a1730;
-  --color-navy-900: #0f1f42;
-  --color-navy-800: #142b57;
-  --color-navy-700: #1d3a73;
-  --color-navy-600: #2a4d8f;
-  --color-navy-500: #3d64ab;
-  --color-navy-300: #8ea3c8;
-  --color-navy-100: #dbe3f0;
+  --color-navy-950: #0A1020;
+  --color-navy-900: #0D2B4D;
+  --color-navy-800: #003475;
+  --color-navy-700: #0649B8;
+  --color-navy-600: #075BD6;
+  --color-navy-500: #5A83DE;
+  --color-navy-300: #DCE6FB;
+  --color-navy-100: #F3F7FF;
 
-  --color-blue-brand: #0092dd;
-  --color-blue-bright: #26aef0;
-  --color-blue-soft: #e6f4fd;
+  /* UNDA Primary & Electric Blues */
+  --color-blue-royal: #0649B8;
+  --color-blue-electric: #075BD6;
+  --color-blue-brand: #075BD6;
+  --color-blue-bright: #075BD6;
+  --color-blue-deep: #0649B8;
+  --color-blue-soft: #F3F7FF;
+  --color-blue-tint: #DCE6FB;
 
-  --color-red-brand: #e01f26;
-  --color-red-deep: #b3141a;
-  --color-red-soft: #fdecec;
+  /* UNDA Signature Humanitarian Greens */
+  --color-green-leaf: #72C94D;
+  --color-green-forest: #36952D;
+  --color-green-lime: #8EDF69;
+  --color-green-soft: #edf9e8;
 
-  /* Legacy aliases: the previous magenta palette maps onto the logo red so
-     existing magenta-* utilities keep working across the site. */
+  /* UNDA Alert & Brand Red */
+  --color-red-brand: #EF3B19;
+  --color-red-deep: #cc2e10;
+  --color-red-soft: #feece8;
+
+  /* Legacy aliases for compatibility */
   --color-magenta-brand: var(--color-red-brand);
   --color-magenta-deep: var(--color-red-deep);
   --color-magenta-soft: var(--color-red-soft);
 
-  --color-cyan-accent: #40d9f1;
-  --color-sand: #f6f4ef;
-  --color-surface: #f3f5f8;
-  --color-line: #e2e7ef;
-  --color-ink: #101c33;
-  --color-slate-body: #4a5568;
-  --color-slate-muted: #6b7688;
+  --color-cyan-accent: #008DC9;
+  --color-sand: #F3E6E6;
+  --color-surface: #F5F7FA;
+  --color-surface-card: #FFFFFF;
+  --color-surface-ice: #F3F7FF;
+  --color-surface-warm: #F3E6E6;
+  --color-taupe-soft: #DCC9C9;
+  --color-taupe-muted: #947A7A;
+  --color-line: #DCE2EA;
+  --color-line-warm: #DCE2EA;
+  --color-ink: #0A1020;
+  --color-slate-body: #4B5563;
+  --color-slate-muted: #6B7280;
 
   --font-display: var(--font-manrope), "Segoe UI", system-ui, sans-serif;
   --font-sans: var(--font-inter), "Segoe UI", system-ui, sans-serif;
   --font-quote: var(--font-newsreader), Georgia, serif;
 
-  --shadow-soft: 0 2px 14px rgba(16, 28, 51, 0.07);
-  --shadow-lift: 0 22px 48px -18px rgba(16, 28, 51, 0.34);
-  --shadow-deep: 0 34px 70px -24px rgba(10, 23, 48, 0.55);
+  --shadow-soft: 0 2px 14px rgba(10, 16, 32, 0.06);
+  --shadow-lift: 0 16px 36px -12px rgba(6, 73, 184, 0.16);
+  --shadow-deep: 0 26px 54px -18px rgba(10, 16, 32, 0.25);
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ------------------------------------------------------------------ *
@@ -82,7 +100,7 @@
   p { text-wrap: pretty; }
 
   ::selection {
-    background: var(--color-red-brand);
+    background: var(--color-blue-brand);
     color: #fff;
   }
 
@@ -106,12 +124,17 @@
  * Layout helpers
  * ------------------------------------------------------------------ */
 @utility shell {
-  width: min(1240px, 100% - 2.5rem);
+  width: min(1140px, calc(100% - clamp(1.5rem, 4vw, 3.5rem)));
   margin-inline: auto;
 }
 
 @utility shell-wide {
-  width: min(1480px, 100% - 2.5rem);
+  width: min(1280px, calc(100% - clamp(1.5rem, 4vw, 3.5rem)));
+  margin-inline: auto;
+}
+
+@utility shell-header {
+  width: min(1280px, calc(100% - clamp(1.5rem, 4vw, 3.5rem)));
   margin-inline: auto;
 }
 
@@ -134,11 +157,12 @@
  * ------------------------------------------------------------------ */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(22px);
   transition:
-    opacity 0.75s var(--ease-out-soft),
-    transform 0.75s var(--ease-out-soft);
+    opacity 0.6s var(--ease-spring),
+    transform 0.6s var(--ease-spring);
   transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
 }
 
 .reveal[data-visible="true"] {
@@ -146,9 +170,9 @@
   transform: none;
 }
 
-.reveal-left { transform: translateX(-30px); }
-.reveal-right { transform: translateX(30px); }
-.reveal-scale { transform: scale(0.955); }
+.reveal-left { transform: translateX(-24px); }
+.reveal-right { transform: translateX(24px); }
+.reveal-scale { transform: scale(0.96); }
 
 @keyframes drift-up {
   from { transform: translateY(14px); opacity: 0; }
@@ -173,6 +197,11 @@
 
 .animate-marquee {
   animation: marquee-x var(--marquee-duration, 46s) linear infinite;
+}
+
+.animate-marquee:hover,
+.hover-pause:hover .animate-marquee {
+  animation-play-state: paused;
 }
 
 .animate-soft-pulse { animation: soft-pulse 2.4s ease-out infinite; }

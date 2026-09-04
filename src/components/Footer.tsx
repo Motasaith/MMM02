@@ -34,36 +34,44 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="relative mt-[-3.5vw] bg-navy-950 pt-[calc(3.5vw+5rem)] pb-10 text-navy-100 clip-up">
+    <footer className="relative border-t border-slate-300 bg-[#E8EFF6] pt-12 pb-8 text-[#334155]">
       <div className="shell-wide">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-10 lg:grid-cols-12">
           {/* Brand block */}
           <div className="lg:col-span-4">
-            <span className="inline-flex items-center rounded-xl bg-white px-4 py-3 shadow-[0_10px_30px_-12px_rgba(6,14,30,0.7)]">
-              <img src="/media/brand/logo-trim.png" alt={org.name} className="h-14 w-auto" />
-            </span>
-            <p className="mt-6 max-w-sm text-[0.97rem] leading-relaxed text-navy-300">
+            <Link href="/" className="group inline-flex items-center gap-2.5 sm:gap-3">
+              <img src="/media/brand/circle-logo.png" alt={org.name} className="h-11 w-11 sm:h-12 sm:w-12 shrink-0 object-contain" />
+              <div className="flex flex-col">
+                <span className="font-display text-[1.08rem] sm:text-[1.15rem] font-black text-[#003475] group-hover:text-[#046BD2] transition-colors leading-none">
+                  Muslim Medical Mission
+                </span>
+                <span className="mt-1 font-display text-[0.65rem] sm:text-[0.7rem] font-bold text-[#E01F26] leading-none">
+                  Wisdom, Action, Service for Allah for Right
+                </span>
+              </div>
+            </Link>
+            <p className="mt-4 max-w-sm text-[0.91rem] leading-relaxed text-[#334155]">
               A volunteer network of Muslim doctors, paramedics and students running free healthcare
               and relief operations across Pakistan and into Gaza.
             </p>
 
-            <address className="mt-7 space-y-1 text-[0.93rem] not-italic text-navy-300">
-              <p className="font-semibold text-white">{org.legalName}</p>
+            <address className="mt-5 space-y-0.5 text-[0.88rem] not-italic text-[#7A7A7A]">
+              <p className="font-bold text-[#003475]">{org.legalName}</p>
               <p>{org.address.line1}</p>
               <p>{org.address.line2}</p>
               <p>{org.address.country}</p>
             </address>
 
-            <div className="mt-6 space-y-1.5 text-[0.95rem]">
+            <div className="mt-4 space-y-1 text-[0.91rem]">
               <a
                 href={org.phoneHref}
-                className="block font-display font-bold text-white transition-colors hover:text-cyan-accent"
+                className="block font-display font-bold text-[#003475] transition-colors hover:text-[#046BD2]"
               >
                 {org.phone}
               </a>
               <a
                 href={`mailto:${org.email}`}
-                className="block text-navy-300 transition-colors hover:text-white"
+                className="block text-[#7A7A7A] transition-colors hover:text-[#046BD2]"
               >
                 {org.email}
               </a>
@@ -71,19 +79,19 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="grid gap-10 sm:grid-cols-3 lg:col-span-5">
+          <div className="grid gap-8 sm:grid-cols-3 lg:col-span-5">
             {columns.map((col) => (
               <div key={col.heading}>
-                <h3 className="font-display text-[1.05rem] font-extrabold text-white">
+                <h3 className="font-display text-[0.96rem] font-extrabold text-[#003475]">
                   {col.heading}
                 </h3>
-                <span className="mt-3 block h-0.5 w-8 bg-magenta-brand" aria-hidden />
-                <ul className="mt-4 space-y-2.5">
+                <span className="mt-2 block h-0.5 w-6 bg-[#046BD2]" aria-hidden />
+                <ul className="mt-3.5 space-y-2">
                   {col.links.map((l) => (
                     <li key={l.href + l.label}>
                       <Link
                         href={l.href}
-                        className="text-[0.93rem] text-navy-300 transition-colors hover:text-white"
+                        className="text-[0.88rem] font-medium text-[#334155] transition-colors hover:text-[#046BD2]"
                       >
                         {l.label}
                       </Link>
@@ -96,26 +104,26 @@ export function Footer() {
 
           {/* Donate panel */}
           <div className="lg:col-span-3">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-6">
-              <h3 className="font-display text-xl font-extrabold text-white">
-                Give where it lands fastest
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-soft">
+              <h3 className="font-display text-[1.05rem] font-extrabold text-[#003475]">
+                Direct Bank Transfer
               </h3>
-              <p className="mt-3 text-[0.9rem] leading-relaxed text-navy-300">
+              <p className="mt-1.5 text-[0.84rem] leading-relaxed text-[#7A7A7A]">
                 Bank transfer reaches the field with the least deducted along the way.
               </p>
 
-              <dl className="mt-5 space-y-2.5 text-[0.86rem]">
+              <dl className="mt-4 space-y-2 text-[0.86rem]">
                 <div>
-                  <dt className="text-navy-300">Account title</dt>
-                  <dd className="font-semibold text-white">{org.bank.title}</dd>
+                  <dt className="text-[#7A7A7A]">Account title</dt>
+                  <dd className="font-semibold text-[#003475]">{org.bank.title}</dd>
                 </div>
                 <div>
-                  <dt className="text-navy-300">Bank</dt>
-                  <dd className="font-semibold text-white">{org.bank.bank}</dd>
+                  <dt className="text-[#7A7A7A]">Bank</dt>
+                  <dd className="font-semibold text-[#003475]">{org.bank.bank}</dd>
                 </div>
                 <div>
-                  <dt className="text-navy-300">IBAN</dt>
-                  <dd className="font-mono text-[0.82rem] font-semibold break-all text-cyan-accent">
+                  <dt className="text-[#7A7A7A]">IBAN</dt>
+                  <dd className="font-mono text-[0.82rem] font-semibold break-all text-[#046BD2]">
                     {org.bank.iban}
                   </dd>
                 </div>
@@ -123,7 +131,7 @@ export function Footer() {
 
               <Link
                 href="/donate"
-                className="group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-magenta-brand px-6 py-3 font-display text-[0.92rem] font-bold text-white transition-colors hover:bg-magenta-deep"
+                className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#046BD2] px-6 py-3 font-display text-[0.9rem] font-bold text-white shadow-sm transition-all hover:bg-[#003475] hover:shadow-md"
               >
                 All the ways to give
                 <Arrow className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -133,8 +141,8 @@ export function Footer() {
         </div>
 
         {/* Legal bar */}
-        <div className="mt-14 flex flex-col gap-5 border-t border-white/10 pt-7 md:flex-row md:items-center md:justify-between">
-          <p className="text-[0.83rem] text-navy-300">
+        <div className="mt-12 flex flex-col gap-4 border-t border-slate-200/80 pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-[0.83rem] text-[#7A7A7A]">
             &copy; {new Date().getFullYear()} {org.legalName}. Registered in Lahore, Pakistan.
           </p>
 
@@ -145,13 +153,13 @@ export function Footer() {
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
-                className="text-[0.83rem] font-semibold text-navy-300 transition-colors hover:text-white"
+                className="text-[0.83rem] font-semibold text-[#334155] transition-colors hover:text-[#046BD2]"
               >
                 {s.name}
               </a>
             ))}
-            <span className="hidden h-3 w-px bg-white/20 md:block" aria-hidden />
-            <p className="text-[0.83rem] text-navy-300">{org.motto}</p>
+            <span className="hidden h-3 w-px bg-slate-200 md:block" aria-hidden />
+            <p className="text-[0.83rem] text-[#7A7A7A]">{org.motto}</p>
           </div>
         </div>
       </div>

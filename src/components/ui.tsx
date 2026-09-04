@@ -34,12 +34,12 @@ type ButtonProps = {
 
 const variants = {
   donate:
-    "bg-magenta-brand text-white hover:bg-magenta-deep shadow-[0_14px_30px_-12px_rgba(224,31,38,0.85)]",
+    "bg-red-brand text-white hover:bg-red-deep shadow-[0_10px_24px_-8px_rgba(224,31,38,0.4)]",
   primary:
-    "bg-blue-brand text-white hover:bg-navy-700 shadow-[0_14px_30px_-12px_rgba(0,146,221,0.8)]",
-  ghost: "border-2 border-white/45 text-white hover:border-white hover:bg-white/12",
-  outline: "border-2 border-navy-800 text-navy-800 hover:bg-navy-800 hover:text-white",
-  quiet: "bg-white text-navy-800 hover:bg-navy-100 shadow-soft",
+    "bg-[#046BD2] text-white hover:bg-[#003475] shadow-[0_10px_24px_-8px_rgba(4,107,210,0.4)]",
+  ghost: "border-2 border-[#003475] text-[#003475] hover:bg-[#003475] hover:text-white",
+  outline: "border-2 border-slate-300 text-[#334155] hover:border-[#046BD2] hover:text-[#046BD2] hover:bg-blue-50/60",
+  quiet: "bg-slate-100 text-[#334155] hover:bg-slate-200 shadow-soft",
 } as const;
 
 export function Button({
@@ -103,14 +103,14 @@ export function SectionHead({
     return (
       <Reveal className={`max-w-3xl ${className}`}>
         <h2
-          className={`text-[clamp(1.9rem,4vw,3.15rem)] ${isDark ? "text-navy-800" : "text-white"}`}
+          className={`text-[clamp(1.55rem,2.6vw,2.15rem)] leading-tight font-black ${isDark ? "text-[#0A1020]" : "text-white"}`}
         >
           {title}
         </h2>
         {lead ? (
           <p
-            className={`mt-5 text-[1.06rem] leading-relaxed ${
-              isDark ? "text-slate-body" : "text-navy-100"
+            className={`mt-4 text-[0.96rem] leading-relaxed sm:text-[1.02rem] ${
+              isDark ? "text-[#4B5563]" : "text-slate-100"
             }`}
           >
             {lead}
@@ -119,8 +119,8 @@ export function SectionHead({
         {link ? (
           <Link
             href={link.href}
-            className={`group mt-6 inline-flex items-center gap-2 font-display text-[0.95rem] font-bold ${
-              isDark ? "text-blue-brand" : "text-cyan-accent"
+            className={`group mt-5 inline-flex items-center gap-2 font-display text-[0.9rem] font-bold ${
+              isDark ? "text-[#075BD6]" : "text-[#EF3B19]"
             }`}
           >
             <span className="link-underline">{link.label}</span>
@@ -133,17 +133,11 @@ export function SectionHead({
 
   return (
     <div className={className}>
-      <Reveal>
-        <div
-          className={`h-px w-full ${isDark ? "bg-line" : "bg-white/20"}`}
-          aria-hidden
-        />
-      </Reveal>
-      <div className="grid gap-6 pt-9 md:grid-cols-12 md:gap-10">
+      <div className="grid gap-4 md:grid-cols-12 md:gap-8 md:items-end">
         <Reveal className="md:col-span-6 lg:col-span-6">
           <h2
-            className={`text-[clamp(1.9rem,4vw,3.15rem)] ${
-              isDark ? "text-navy-800" : "text-white"
+            className={`text-[clamp(1.55rem,2.6vw,2.15rem)] leading-tight font-black ${
+              isDark ? "text-[#0A1020]" : "text-white"
             }`}
           >
             {title}
@@ -153,8 +147,8 @@ export function SectionHead({
           <Reveal delay={90} className="md:col-span-6 lg:col-span-5 lg:col-start-8">
             {lead ? (
               <p
-                className={`text-[1.06rem] leading-relaxed ${
-                  isDark ? "text-slate-body" : "text-navy-100"
+                className={`text-[0.96rem] leading-relaxed sm:text-[1.02rem] ${
+                  isDark ? "text-[#4B5563]" : "text-slate-100"
                 }`}
               >
                 {lead}
@@ -163,8 +157,8 @@ export function SectionHead({
             {link ? (
               <Link
                 href={link.href}
-                className={`group mt-5 inline-flex items-center gap-2 font-display text-[0.95rem] font-bold ${
-                  isDark ? "text-blue-brand" : "text-cyan-accent"
+                className={`group mt-4 inline-flex items-center gap-2 font-display text-[0.9rem] font-bold ${
+                  isDark ? "text-[#075BD6]" : "text-[#EF3B19]"
                 }`}
               >
                 <span className="link-underline">{link.label}</span>
@@ -179,7 +173,7 @@ export function SectionHead({
 }
 
 /* ------------------------------------------------------------------ */
-/* Page header, used on every inner page                               */
+/* Page header, used on every inner page (Luminous Light Design)       */
 /* ------------------------------------------------------------------ */
 
 export function PageHeader({
@@ -195,35 +189,35 @@ export function PageHeader({
   crumb: { label: string; href: string }[];
 }) {
   return (
-    <header className="relative isolate overflow-hidden bg-navy-900 pt-36 pb-24 clip-down md:pt-44 md:pb-32">
+    <header className="relative isolate overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-[#F0F6FC] via-[#F8FAFC] to-white pt-30 pb-14 md:pt-34 md:pb-18">
       <div className="absolute inset-0 -z-10">
         {image ? (
           <img
             src={image}
             alt=""
             aria-hidden
-            className="h-full w-full scale-105 object-cover opacity-30"
+            className="h-full w-full object-cover opacity-15"
           />
         ) : (
           <div
-            className="h-full w-full"
+            className="h-full w-full opacity-60"
             aria-hidden
             style={{
               backgroundImage:
-                "radial-gradient(70% 80% at 82% 10%, rgba(0,146,221,0.5), transparent 62%), radial-gradient(55% 70% at 96% 70%, rgba(221,18,123,0.35), transparent 60%)",
+                "radial-gradient(60% 70% at 85% 20%, rgba(4,107,210,0.12), transparent 70%), radial-gradient(40% 50% at 10% 80%, rgba(243,230,230,0.8), transparent 60%)",
             }}
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/92 to-navy-900/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/40" />
       </div>
 
       <div className="shell">
         <nav aria-label="Breadcrumb">
-          <ol className="flex flex-wrap items-center gap-2 text-[0.86rem] font-semibold text-navy-300">
+          <ol className="flex flex-wrap items-center gap-2 text-[0.84rem] font-semibold text-[#7A7A7A]">
             {crumb.map((c, i) => (
               <li key={c.href} className="flex items-center gap-2">
-                {i > 0 && <span className="text-navy-300/50">/</span>}
-                <Link href={c.href} className="transition-colors hover:text-white">
+                {i > 0 && <span className="text-slate-300">/</span>}
+                <Link href={c.href} className="transition-colors hover:text-[#046BD2]">
                   {c.label}
                 </Link>
               </li>
@@ -231,8 +225,8 @@ export function PageHeader({
           </ol>
         </nav>
 
-        <h1 className="mt-7 max-w-4xl text-[clamp(2.3rem,5.4vw,4rem)] text-white">{title}</h1>
-        <p className="mt-6 max-w-2xl text-[1.1rem] leading-relaxed text-navy-100">{lead}</p>
+        <h1 className="mt-5 max-w-3xl text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.12] font-extrabold text-[#003475] tracking-tight">{title}</h1>
+        <p className="mt-4 max-w-2xl text-[0.98rem] leading-relaxed text-[#334155] sm:text-[1.04rem]">{lead}</p>
       </div>
     </header>
   );
@@ -243,22 +237,22 @@ export function PageHeader({
 /* ------------------------------------------------------------------ */
 
 export const accentBar = {
-  blue: "bg-blue-brand",
-  magenta: "bg-magenta-brand",
-  navy: "bg-navy-700",
-  cyan: "bg-cyan-accent",
+  blue: "bg-[#046BD2]",
+  magenta: "bg-red-brand",
+  navy: "bg-[#003475]",
+  cyan: "bg-[#008DC9]",
 } as const;
 
 export const accentText = {
-  blue: "text-blue-brand",
-  magenta: "text-magenta-brand",
-  navy: "text-navy-700",
-  cyan: "text-cyan-accent",
+  blue: "text-[#046BD2]",
+  magenta: "text-red-brand",
+  navy: "text-[#003475]",
+  cyan: "text-[#008DC9]",
 } as const;
 
 export const accentTint = {
-  blue: "bg-blue-soft text-blue-brand",
-  magenta: "bg-magenta-soft text-magenta-brand",
-  navy: "bg-navy-100 text-navy-700",
-  cyan: "bg-[#e2f9fd] text-[#0b8ea3]",
+  blue: "bg-blue-50 text-[#046BD2]",
+  magenta: "bg-red-50 text-red-brand",
+  navy: "bg-slate-100 text-[#003475]",
+  cyan: "bg-[#e0f4fc] text-[#008DC9]",
 } as const;

@@ -51,15 +51,15 @@ export default function AboutPage() {
       />
 
       {/* Story */}
-      <section className="py-24 lg:py-28">
-        <div className="shell-wide grid gap-14 lg:grid-cols-12">
+      <section className="bg-white py-12 sm:py-14 lg:py-16 border-b border-slate-200/80">
+        <div className="shell-wide grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Reveal>
-              <h2 className="text-[clamp(1.8rem,3.6vw,2.8rem)] text-navy-800">
+              <h2 className="text-[clamp(1.55rem,2.6vw,2.15rem)] leading-tight font-extrabold text-[#003475]">
                 The problem was never the medicine
               </h2>
             </Reveal>
-            <div className="rich mt-7 text-[1.05rem]">
+            <div className="rich mt-5 text-[0.96rem] sm:text-[1.02rem] leading-relaxed">
               <Reveal as="p" delay={60}>
                 Pakistan trains excellent doctors. It has pharmaceutical manufacturing, teaching
                 hospitals and a diaspora of specialists. What it does not have is a way of getting
@@ -87,11 +87,11 @@ export default function AboutPage() {
               className="w-full rounded-2xl object-cover"
               loading="lazy"
             />
-            <div className="mt-6 rounded-2xl bg-surface p-6">
-              <p className="font-quote text-[1.15rem] leading-snug text-navy-800 italic">
+            <div className="mt-5 rounded-2xl border border-slate-200/80 bg-surface p-5">
+              <p className="font-quote text-[1.1rem] leading-snug text-navy-800 italic">
                 {org.motto}
               </p>
-              <p className="mt-3 text-[0.88rem] text-slate-muted">
+              <p className="mt-2.5 text-[0.85rem] text-slate-muted">
                 The words the organisation was founded on, and the test applied to every deployment
                 since.
               </p>
@@ -101,15 +101,15 @@ export default function AboutPage() {
       </section>
 
       {/* Mission and vision */}
-      <section id="mission" className="bg-navy-900 py-24 lg:py-28">
+      <section id="mission" className="border-b border-slate-200/80 bg-[#F0F5FA] py-12 sm:py-14 lg:py-16">
         <div className="shell-wide">
           <SectionHead
-            tone="light"
+            tone="dark"
             title="Mission and vision"
             lead="Both were written at the start and neither has been rewritten for a funding application since."
           />
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {[
               {
                 k: "Mission",
@@ -121,9 +121,9 @@ export default function AboutPage() {
               },
             ].map((x, i) => (
               <Reveal key={x.k} delay={i * 90}>
-                <div className="h-full rounded-2xl border border-white/12 bg-white/[0.045] p-8">
-                  <h3 className="font-display text-[1.3rem] font-extrabold text-cyan-accent">{x.k}</h3>
-                  <p className="mt-5 font-quote text-[1.35rem] leading-snug text-white italic">
+                <div className="h-full rounded-2xl border border-blue-100 bg-white p-6 sm:p-7 shadow-soft">
+                  <h3 className="font-display text-[1.15rem] font-extrabold text-[#046BD2]">{x.k}</h3>
+                  <p className="mt-4 font-quote text-[1.12rem] sm:text-[1.2rem] leading-snug text-[#003475] italic">
                     {x.v}
                   </p>
                 </div>
@@ -134,24 +134,24 @@ export default function AboutPage() {
       </section>
 
       {/* Means */}
-      <section id="means" className="py-24 lg:py-28">
+      <section id="means" className="bg-white py-12 sm:py-14 lg:py-16 border-b border-slate-200/80">
         <div className="shell-wide">
           <SectionHead
             title="Our means"
             lead="Four words carried in the logo. They are also the sequence a deployment actually follows."
           />
 
-          <ol className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <ol className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {values.map((v, i) => (
               <Reveal key={v.key} delay={i * 80} as="li">
-                <div className="h-full rounded-2xl bg-surface p-7">
-                  <span className="font-display text-[2.6rem] leading-none font-extrabold text-navy-100">
+                <div className="h-full rounded-2xl bg-[#F0F5FA] border border-slate-200/80 p-6">
+                  <span className="font-display text-[2.2rem] leading-none font-extrabold text-[#046BD2]/25">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-4 font-display text-[1.2rem] font-extrabold text-navy-800">
+                  <h3 className="mt-3 font-display text-[1.1rem] font-extrabold text-navy-800">
                     {v.key}
                   </h3>
-                  <p className="mt-2.5 text-[0.95rem] leading-relaxed text-slate-body">{v.body}</p>
+                  <p className="mt-2 text-[0.91rem] leading-relaxed text-slate-body">{v.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -160,27 +160,27 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="bg-surface py-24 lg:py-28">
+      <section className="bg-[#F0F5FA] py-12 sm:py-14 lg:py-16 border-b border-slate-200/80">
         <div className="shell-wide">
           <SectionHead
             title="How the work grew"
             lead="From one camp a month to sustained emergency response in two countries, without ever adding a layer of management."
           />
 
-          <ol className="mt-14 border-l-2 border-line pl-8 sm:pl-12">
+          <ol className="mt-8 border-l-2 border-slate-300 pl-6 sm:pl-10">
             {timeline.map((t, i) => (
-              <Reveal key={t.year} delay={i * 70} as="li" className="relative pb-11 last:pb-0">
+              <Reveal key={t.year} delay={i * 70} as="li" className="relative pb-8 last:pb-0">
                 <span
-                  className="absolute top-1.5 -left-[41px] h-4 w-4 rounded-full border-4 border-surface bg-magenta-brand sm:-left-[57px]"
+                  className="absolute top-1.5 -left-[33px] h-3.5 w-3.5 rounded-full border-4 border-white bg-[#046BD2] sm:-left-[49px]"
                   aria-hidden
                 />
-                <p className="font-display text-[1.5rem] leading-none font-extrabold text-blue-brand">
+                <p className="font-display text-[1.35rem] leading-none font-extrabold text-[#046BD2]">
                   {t.year}
                 </p>
-                <h3 className="mt-2.5 font-display text-[1.3rem] font-extrabold text-navy-800">
+                <h3 className="mt-2 font-display text-[1.15rem] font-extrabold text-[#003475]">
                   {t.title}
                 </h3>
-                <p className="mt-2 max-w-2xl text-[0.98rem] leading-relaxed text-slate-body">
+                <p className="mt-2 max-w-2xl text-[0.96rem] leading-relaxed text-slate-body">
                   {t.body}
                 </p>
               </Reveal>
@@ -190,14 +190,14 @@ export default function AboutPage() {
       </section>
 
       {/* Where we work */}
-      <section id="reach" className="py-24 lg:py-28">
+      <section id="reach" className="bg-white py-12 sm:py-14 lg:py-16 border-b border-slate-200/80">
         <div className="shell-wide">
           <SectionHead
             title="Where we work"
             lead="Districts are chosen on assessed need and on whether we can realistically return, because a single visit that is never repeated helps nobody."
           />
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
             {regions.map((r, i) => (
               <Reveal key={r.name} delay={i * 80}>
                 <div className="group flex h-full gap-6 rounded-2xl bg-white p-7 ring-1 ring-line transition-all duration-400 hover:-translate-y-1 hover:shadow-lift hover:ring-transparent">

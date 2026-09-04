@@ -4,6 +4,7 @@
 export type GalleryItem = { src: string; group: string; region: string };
 
 export const galleryGroups = [
+  { key: "field", label: "MMM Academy & Surgical Camps", region: "Pakistan" },
   { key: "disaster", label: "Pakistan flood response", region: "Pakistan" },
   { key: "medical", label: "Gaza field clinics", region: "Gaza" },
   { key: "ration", label: "Gaza food parcels", region: "Gaza" },
@@ -13,6 +14,21 @@ export const galleryGroups = [
 ] as const;
 
 export const gallery: GalleryItem[] = [
+  { src: "/media/field/bls-rescue-1122.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/surgical-camp-kotlakhpat.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/surgical-camp-rajanpur.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/free-medical-camp-doctors.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/free-medical-camp-medicines.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/free-medical-camp-queue.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/cme-medical-symposium.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/national-conference-stage.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/national-conference-audience.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/conference-awards-ceremony.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/future-healers-mentorship.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/first-aid-workshop-table.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/hero-humanitarian-relief.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/hero-disaster-response.jpg", group: "field", region: "Pakistan" },
+  { src: "/media/field/hero-national-conference.jpg", group: "field", region: "Pakistan" },
   { src: "/media/disaster/disaster-01.jpg", group: "disaster", region: "Pakistan" },
   { src: "/media/disaster/disaster-02.jpg", group: "disaster", region: "Pakistan" },
   { src: "/media/disaster/disaster-03.jpg", group: "disaster", region: "Pakistan" },

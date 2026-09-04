@@ -82,10 +82,10 @@ export default function DonatePage() {
       </section>
 
       {/* Allocation */}
-      <section id="allocation" className="bg-navy-900 py-24 lg:py-28">
+      <section id="allocation" className="border-y border-slate-200/80 bg-gradient-to-b from-[#F0F7FF] via-[#F8FAFC] to-white py-24 lg:py-28">
         <div className="shell-wide">
           <SectionHead
-            tone="light"
+            tone="dark"
             title="Where the money goes"
             lead="The organisation runs on volunteer clinical time and has no paid fundraising arm, which is the only reason these proportions are possible."
           />
@@ -96,16 +96,16 @@ export default function DonatePage() {
                 {allocation.map((a, i) => (
                   <Reveal key={a.label} delay={i * 90} as="li">
                     <div className="flex items-baseline justify-between gap-4">
-                      <span className="font-display text-[1.02rem] font-bold text-white">
+                      <span className="font-display text-[1.02rem] font-bold text-[#003475]">
                         {a.label}
                       </span>
-                      <span className="font-display text-[1.5rem] font-extrabold text-cyan-accent">
+                      <span className="font-display text-[1.5rem] font-extrabold text-[#046BD2]">
                         {a.value}%
                       </span>
                     </div>
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/12">
+                    <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-slate-200">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-blue-brand to-cyan-accent transition-[width] duration-1000 ease-out"
+                        className="h-full rounded-full bg-gradient-to-r from-[#046BD2] to-[#008DC9] transition-[width] duration-1000 ease-out"
                         style={{ width: `${a.value}%` }}
                       />
                     </div>
@@ -115,11 +115,11 @@ export default function DonatePage() {
             </div>
 
             <Reveal delay={100} className="lg:col-span-4 lg:col-start-9">
-              <div className="rounded-2xl border border-white/12 bg-white/[0.045] p-7">
-                <h3 className="font-display text-[1.15rem] font-extrabold text-white">
+              <div className="rounded-2xl border border-blue-100 bg-white p-7 shadow-soft">
+                <h3 className="font-display text-[1.15rem] font-extrabold text-[#003475]">
                   Ask us for the count
                 </h3>
-                <p className="mt-3 text-[0.94rem] leading-relaxed text-navy-100">
+                <p className="mt-3 text-[0.94rem] leading-relaxed text-[#334155]">
                   Send your transfer receipt on WhatsApp and a volunteer will tell you which
                   deployment your gift went into and how many people it reached.
                 </p>
@@ -127,7 +127,7 @@ export default function DonatePage() {
                   href={org.whatsapp}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex rounded-full bg-white px-6 py-3 font-display text-[0.9rem] font-bold text-navy-900 transition-transform duration-300 hover:-translate-y-0.5"
+                  className="mt-6 inline-flex rounded-full bg-[#046BD2] px-6 py-3 font-display text-[0.9rem] font-bold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#003475]"
                 >
                   Message the team
                 </a>

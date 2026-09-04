@@ -91,25 +91,25 @@ export default function ContactPage() {
 
           {/* Address card */}
           <Reveal from="right" className="lg:col-span-4 lg:col-start-9">
-            <div className="overflow-hidden rounded-2xl bg-navy-900">
+            <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-soft">
               <img
                 src="/media/brand/mmm-lahore-2015.jpg"
                 alt="Muslim Medical Mission volunteers in Lahore"
                 loading="lazy"
-                className="aspect-[4/3] w-full object-cover opacity-90"
+                className="aspect-[4/3] w-full object-cover"
               />
               <div className="p-7">
-                <h2 className="font-display text-[1.2rem] font-extrabold text-white">
+                <h2 className="font-display text-[1.2rem] font-extrabold text-[#003475]">
                   {org.legalName}
                 </h2>
-                <address className="mt-4 space-y-1 text-[0.95rem] not-italic text-navy-100">
+                <address className="mt-4 space-y-1 text-[0.95rem] not-italic text-[#334155]">
                   <p>{org.address.line1}</p>
                   <p>{org.address.line2}</p>
                   <p>{org.address.country}</p>
                 </address>
 
-                <div className="mt-6 border-t border-white/12 pt-5">
-                  <p className="font-display text-[1rem] font-bold text-white">Follow the work</p>
+                <div className="mt-6 border-t border-slate-100 pt-5">
+                  <p className="font-display text-[0.95rem] font-bold text-[#003475]">Follow the work</p>
                   <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
                     {org.social.map((s) => (
                       <li key={s.name}>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                           href={s.href}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-display text-[0.9rem] font-bold text-white transition-colors hover:text-cyan-accent"
+                          className="font-display text-[0.9rem] font-bold text-[#046BD2] transition-colors hover:text-[#003475]"
                         >
                           {s.name}
                         </a>

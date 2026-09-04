@@ -17,72 +17,78 @@ export function GazaBand() {
   const loop = [...strip, ...strip];
 
   return (
-    <section className="relative overflow-hidden bg-navy-900 py-24 lg:py-28">
-      {/* No large Gaza photograph exists in the library, so the ground is
-          built from light rather than a stretched low resolution image. */}
-      <div
-        className="absolute inset-0"
-        aria-hidden
-        style={{
-          backgroundImage:
-            "radial-gradient(75% 60% at 12% 0%, rgba(0,146,221,0.28), transparent 62%), radial-gradient(60% 55% at 92% 12%, rgba(221,18,123,0.2), transparent 60%)",
-        }}
-      />
-
+    <section className="relative isolate overflow-hidden bg-white py-14 sm:py-16 lg:py-20 border-b border-[#DCE2EA]">
       <div className="relative">
         <div className="shell-wide grid gap-10 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-7">
-            <h2 className="text-[clamp(1.9rem,4vw,3.15rem)] text-white">
+            <h2 className="text-[clamp(1.75rem,2.8vw,2.4rem)] leading-tight font-black text-[#0A1020]">
               The same teams, four thousand kilometres away
             </h2>
-            <p className="mt-6 max-w-2xl text-[1.06rem] leading-relaxed text-navy-100">
+            <p className="mt-4 max-w-2xl text-[1rem] leading-relaxed text-[#4B5563] sm:text-[1.05rem]">
               Our Gaza operation runs on the logic that keeps people alive when a health system has
               stopped functioning. Water before medicine, food before comfort, and a heavy quilt
               before the cold arrives rather than after it.
             </p>
           </Reveal>
 
-          <Reveal delay={100} className="lg:col-span-4 lg:col-start-9">
-            <dl className="grid grid-cols-3 gap-5 border-t border-white/15 pt-6">
+          <Reveal delay={100} className="lg:col-span-5 lg:pl-6">
+            <dl className="grid grid-cols-3 gap-3 rounded-2xl border border-[#DCE2EA] bg-[#F5F7FA] p-4 shadow-xs">
               {[
-                { k: "Water", v: "Trucked daily" },
-                { k: "Food", v: "Parcels and hot meals" },
-                { k: "Winter", v: "Quilts and clothing" },
+                { k: "Water", v: "Trucked daily", icon: "💧" },
+                { k: "Food", v: "Parcels & hot meals", icon: "🍲" },
+                { k: "Winter", v: "Quilts & coats", icon: "🧥" },
               ].map((x) => (
-                <div key={x.k}>
-                  <dt className="font-display text-[1rem] font-extrabold text-cyan-accent">{x.k}</dt>
-                  <dd className="mt-1.5 text-[0.88rem] leading-snug text-navy-100">{x.v}</dd>
+                <div key={x.k} className="group rounded-xl p-2.5 transition-colors duration-200 hover:bg-white">
+                  <span className="text-base" aria-hidden>{x.icon}</span>
+                  <dt className="mt-1 font-display text-[0.94rem] font-bold text-[#075BD6]">{x.k}</dt>
+                  <dd className="mt-0.5 text-xs font-medium leading-snug text-[#4B5563]">{x.v}</dd>
                 </div>
               ))}
             </dl>
 
-            <Link
-              href="/what-we-do/gaza-field-clinics"
-              className="group mt-7 inline-flex items-center gap-2 font-display font-bold text-white"
-            >
-              <span className="link-underline">See the Gaza programmes</span>
-              <Arrow className="text-cyan-accent transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <Link
+                href="/what-we-do/gaza-field-clinics"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#075BD6] px-6 py-3 font-display text-[0.9rem] font-bold text-white shadow-sm transition-all duration-300 hover:bg-[#0649B8] hover:shadow-md"
+              >
+                <span>Support the Gaza relief effort</span>
+                <Arrow className="transition-transform duration-300 group-hover:translate-x-1.5" />
+              </Link>
+              <Link
+                href="/donate"
+                className="font-display text-[0.88rem] font-bold text-[#075BD6] hover:text-[#0649B8] transition-colors underline underline-offset-4"
+              >
+                Direct emergency bank transfer
+              </Link>
+            </div>
           </Reveal>
         </div>
 
-        {/* Continuous photo rail */}
-        <div className="relative mt-16 overflow-hidden" aria-hidden>
+        {/* Continuous photo rail with interactive pause on hover */}
+        <div className="relative mt-12 overflow-hidden hover-pause" aria-label="Gaza operation photographs">
           <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-navy-950 to-transparent"
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 sm:w-40 bg-gradient-to-r from-white to-transparent"
           />
           <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-navy-950 to-transparent"
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 sm:w-40 bg-gradient-to-l from-white to-transparent"
           />
-          <ul className="animate-marquee flex w-max gap-4" style={{ "--marquee-duration": "58s" } as React.CSSProperties}>
+          <ul
+            className="animate-marquee flex w-max gap-4"
+            style={{ "--marquee-duration": "55s" } as React.CSSProperties}
+          >
             {loop.map((img, i) => (
-              <li key={i} className="w-[260px] shrink-0 sm:w-[300px]">
-                <img
-                  src={img.src}
-                  alt=""
-                  loading="lazy"
-                  className="aspect-[4/3] w-full rounded-xl object-cover opacity-85 grayscale-[0.15] transition-all duration-500 hover:opacity-100 hover:grayscale-0"
-                />
+              <li key={i} className="w-[240px] shrink-0 sm:w-[280px]">
+                <div className="group relative overflow-hidden rounded-2xl border border-[#DCE2EA] bg-[#F5F7FA] shadow-sm transition-all duration-500 hover:border-[#075BD6] hover:shadow-md">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1020]/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex items-end p-3.5">
+                    <p className="text-xs font-semibold text-white drop-shadow-sm">{img.alt}</p>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>

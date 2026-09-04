@@ -8,11 +8,18 @@ type CountUpProps = {
   suffix?: string;
   duration?: number;
   className?: string;
+  useGrouping?: boolean;
 };
 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
 
-export function CountUp({ to, suffix = "", duration = 1600, className = "" }: CountUpProps) {
+export function CountUp({
+  to,
+  suffix = "",
+  duration = 1600,
+  className = "",
+  useGrouping = true,
+}: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const [value, setValue] = useState(0);
 
@@ -45,7 +52,7 @@ export function CountUp({ to, suffix = "", duration = 1600, className = "" }: Co
 
   return (
     <span ref={ref} className={className}>
-      {value.toLocaleString("en-GB")}
+      {useGrouping ? value.toLocaleString("en-GB") : value.toString()}
       {suffix}
     </span>
   );

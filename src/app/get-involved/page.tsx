@@ -119,10 +119,10 @@ export default function GetInvolvedPage() {
       </section>
 
       {/* Steps */}
-      <section className="bg-navy-900 py-24 lg:py-28">
+      <section className="border-y border-slate-200/80 bg-gradient-to-b from-[#F0F7FF] via-[#F8FAFC] to-white py-24 lg:py-28">
         <div className="shell-wide">
           <SectionHead
-            tone="light"
+            tone="dark"
             title="How joining works"
             lead="Three steps, no application form, and no waiting list."
           />
@@ -130,14 +130,14 @@ export default function GetInvolvedPage() {
           <ol className="mt-14 grid gap-6 md:grid-cols-3">
             {steps.map((s, i) => (
               <Reveal key={s.n} delay={i * 90} as="li">
-                <div className="h-full rounded-2xl border border-white/12 bg-white/[0.045] p-8">
-                  <span className="font-display text-[2.6rem] leading-none font-extrabold text-white/15">
+                <div className="h-full rounded-2xl border border-blue-100 bg-white p-8 shadow-soft">
+                  <span className="font-display text-[2.6rem] leading-none font-extrabold text-[#046BD2]/25">
                     {s.n}
                   </span>
-                  <h3 className="mt-4 font-display text-[1.25rem] font-extrabold text-white">
+                  <h3 className="mt-4 font-display text-[1.25rem] font-extrabold text-[#003475]">
                     {s.title}
                   </h3>
-                  <p className="mt-3 text-[0.95rem] leading-relaxed text-navy-100">{s.body}</p>
+                  <p className="mt-3 text-[0.95rem] leading-relaxed text-[#334155]">{s.body}</p>
                 </div>
               </Reveal>
             ))}
@@ -145,10 +145,10 @@ export default function GetInvolvedPage() {
 
           <Reveal delay={120}>
             <div className="mt-12 flex flex-wrap gap-4">
-              <Button href={org.whatsapp} variant="donate" external>
+              <Button href={org.whatsapp} variant="primary" external>
                 Message us on WhatsApp
               </Button>
-              <Button href={`mailto:${org.email}`} variant="ghost" external>
+              <Button href={`mailto:${org.email}`} variant="outline" external>
                 Email the coordinator
               </Button>
             </div>

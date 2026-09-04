@@ -133,8 +133,8 @@ export function DonationPlanner() {
                   aria-pressed={on}
                   className={`rounded-full px-6 py-3 font-display text-[0.95rem] font-bold transition-all duration-300 ${
                     on
-                      ? "bg-navy-800 text-white"
-                      : "bg-surface text-navy-800 hover:bg-navy-100"
+                      ? "bg-[#046BD2] text-white shadow-sm"
+                      : "bg-slate-100 text-[#334155] hover:bg-blue-50 hover:text-[#046BD2]"
                   }`}
                 >
                   {money(p)}
@@ -168,21 +168,21 @@ export function DonationPlanner() {
       </div>
 
       {/* Result */}
-      <div className="rounded-2xl bg-navy-900 p-7 lg:col-span-5 lg:p-9">
-        <p className="font-display text-[0.98rem] font-bold text-cyan-accent">
+      <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-[#F0F7FF] to-white p-7 shadow-soft lg:col-span-5 lg:p-9">
+        <p className="font-display text-[0.98rem] font-bold text-[#046BD2]">
           {money(amount)} towards {cause.label.toLowerCase()}
         </p>
 
-        <p className="mt-6 font-display text-[3.4rem] leading-none font-extrabold text-white">
+        <p className="mt-6 font-display text-[3.4rem] leading-none font-extrabold text-[#003475]">
           {units.toLocaleString("en-GB")}
         </p>
-        <p className="mt-2 font-display text-[1.1rem] font-bold text-white">
+        <p className="mt-2 font-display text-[1.1rem] font-bold text-[#003475]">
           {units === 1 ? cause.unitName : cause.unitPlural}
         </p>
-        <p className="mt-4 text-[0.93rem] leading-relaxed text-navy-100">{cause.note}</p>
+        <p className="mt-4 text-[0.93rem] leading-relaxed text-[#334155]">{cause.note}</p>
 
         {units === 0 && (
-          <p className="mt-4 rounded-xl bg-white/8 p-4 text-[0.88rem] leading-relaxed text-navy-100">
+          <p className="mt-4 rounded-xl bg-blue-50/80 p-4 text-[0.88rem] leading-relaxed text-[#334155]">
             This amount is below one full unit for this programme. It is still used, pooled with
             other gifts, and it still counts.
           </p>
@@ -192,7 +192,7 @@ export function DonationPlanner() {
           href={`${org.whatsapp}?text=${message}`}
           target="_blank"
           rel="noreferrer"
-          className="group mt-8 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-magenta-brand px-7 py-4 font-display font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-magenta-deep"
+          className="group mt-8 inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-[#046BD2] px-7 py-4 font-display font-bold text-white shadow-[0_8px_20px_rgba(4,107,210,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#003475]"
         >
           Arrange this donation
           <Arrow className="transition-transform duration-300 group-hover:translate-x-1" />

@@ -39,11 +39,11 @@ export default function WhatWeDoPage() {
               <div className="shell-wide">
                 <Reveal>
                   <div className="flex items-center gap-5">
-                    <h2 className="font-display text-[1.6rem] font-extrabold text-navy-800">
+                    <h2 className="font-display text-[1.6rem] font-extrabold text-[#003475]">
                       {group.heading}
                     </h2>
-                    <span className="h-px flex-1 bg-line" aria-hidden />
-                    <span className="font-display text-[0.8rem] font-bold text-slate-muted">
+                    <span className="h-px flex-1 bg-slate-200" aria-hidden />
+                    <span className="font-display text-[0.8rem] font-bold text-[#7A7A7A]">
                       {items.length} {items.length === 1 ? "programme" : "programmes"}
                     </span>
                   </div>

@@ -102,7 +102,7 @@ export default function MediaPage() {
                   href="https://youtube.com/@mmmpakofficial"
                   target="_blank"
                   rel="noreferrer"
-                  className="group block overflow-hidden rounded-2xl bg-navy-900"
+                  className="group block overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lift"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <img
@@ -110,17 +110,19 @@ export default function MediaPage() {
                       alt=""
                       aria-hidden
                       loading="lazy"
-                      className="h-full w-full object-cover opacity-85 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
+                      className="h-full w-full object-cover opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
                     />
                     <span className="absolute inset-0 grid place-items-center" aria-hidden>
-                      <span className="grid h-14 w-14 place-items-center rounded-full bg-magenta-brand/95 shadow-lift transition-transform duration-400 group-hover:scale-110">
+                      <span className="grid h-14 w-14 place-items-center rounded-full bg-[#046BD2]/90 shadow-lift transition-transform duration-400 group-hover:scale-110 group-hover:bg-[#003475]">
                         <svg viewBox="0 0 24 24" className="ml-0.5 h-6 w-6 fill-white">
                           <path d="M8 5v14l11-7z" />
                         </svg>
                       </span>
                     </span>
                   </div>
-                  <p className="p-5 font-display text-[1rem] font-bold text-white">{v.title}</p>
+                  <p className="p-5 font-display text-[0.98rem] font-bold text-[#003475] transition-colors group-hover:text-[#046BD2]">
+                    {v.title}
+                  </p>
                 </a>
               </Reveal>
             ))}

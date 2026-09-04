@@ -83,14 +83,14 @@ export default async function ProgramPage({ params }: Params) {
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
                   href="/donate"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-magenta-brand px-7 py-3.5 font-display font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-magenta-deep"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-[#046BD2] px-7 py-3.5 font-display font-bold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#003475]"
                 >
                   Fund this programme
                   <Arrow className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/get-involved"
-                  className="inline-flex items-center gap-2.5 rounded-full border-2 border-navy-800 px-7 py-3.5 font-display font-bold text-navy-800 transition-colors hover:bg-navy-800 hover:text-white"
+                  className="inline-flex items-center gap-2.5 rounded-full border-2 border-slate-300 px-7 py-3.5 font-display font-bold text-[#003475] transition-colors hover:border-[#046BD2] hover:text-[#046BD2] hover:bg-blue-50/50"
                 >
                   Join a deployment
                 </Link>
@@ -101,10 +101,10 @@ export default async function ProgramPage({ params }: Params) {
           {/* Gallery rail, only where real photographs of this work exist */}
           <div className={`lg:col-span-4 lg:col-start-9 ${program.gallery.length ? "" : "hidden"}`}>
             <Reveal from="right">
-              <h2 className="font-display text-[1.15rem] font-extrabold text-navy-800">
+              <h2 className="font-display text-[1.15rem] font-extrabold text-[#003475]">
                 From this programme
               </h2>
-              <span className="mt-3 block h-0.5 w-10 bg-magenta-brand" aria-hidden />
+              <span className="mt-3 block h-0.5 w-10 bg-[#046BD2]" aria-hidden />
             </Reveal>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
@@ -129,13 +129,13 @@ export default async function ProgramPage({ params }: Params) {
         <div className="shell-wide">
           <Reveal>
             <div className="flex items-center gap-5">
-              <h2 className="font-display text-[1.5rem] font-extrabold text-navy-800">
+              <h2 className="font-display text-[1.5rem] font-extrabold text-[#003475]">
                 Other programmes
               </h2>
-              <span className="h-px flex-1 bg-line" aria-hidden />
+              <span className="h-px flex-1 bg-slate-200" aria-hidden />
               <Link
                 href="/what-we-do"
-                className="group inline-flex items-center gap-2 font-display text-[0.9rem] font-bold text-blue-brand"
+                className="group inline-flex items-center gap-2 font-display text-[0.9rem] font-bold text-[#046BD2]"
               >
                 <span className="link-underline">See all</span>
                 <Arrow className="transition-transform duration-300 group-hover:translate-x-1" />

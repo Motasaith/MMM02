@@ -64,8 +64,8 @@ export function Gallery() {
               aria-pressed={on}
               className={`shrink-0 rounded-full px-5 py-2.5 font-display text-[0.88rem] font-bold transition-all duration-300 ${
                 on
-                  ? "bg-navy-800 text-white"
-                  : "bg-surface text-navy-800 hover:bg-navy-100"
+                  ? "bg-[#046BD2] text-white shadow-sm"
+                  : "bg-slate-100 text-[#334155] hover:bg-blue-50 hover:text-[#046BD2]"
               }`}
             >
               {f.label}
@@ -91,7 +91,7 @@ export function Gallery() {
               className="w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
             />
             <span
-              className="absolute inset-0 bg-navy-950/0 transition-colors duration-400 group-hover:bg-navy-950/45"
+              className="absolute inset-0 bg-[#003475]/0 transition-colors duration-400 group-hover:bg-[#003475]/40"
               aria-hidden
             />
             <span className="absolute bottom-3 left-3 translate-y-2 font-display text-[0.78rem] font-bold text-white opacity-0 transition-all duration-400 group-hover:translate-y-0 group-hover:opacity-100">
@@ -106,10 +106,10 @@ export function Gallery() {
           <button
             type="button"
             onClick={() => setShown((s) => s + 24)}
-            className="rounded-full border-2 border-navy-800 px-8 py-3.5 font-display font-bold text-navy-800 transition-colors hover:bg-navy-800 hover:text-white"
+            className="rounded-full border-2 border-slate-300 px-8 py-3.5 font-display font-bold text-[#334155] transition-colors hover:border-[#046BD2] hover:text-[#046BD2] hover:bg-blue-50/50"
           >
             Show more photographs
-            <span className="ml-2 text-slate-muted">
+            <span className="ml-2 text-slate-400">
               {visible.length} of {items.length}
             </span>
           </button>
