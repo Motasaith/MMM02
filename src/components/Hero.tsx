@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Arrow } from "./ui";
 
-const DURATION = 6500;
+const DURATION = 5000; // Exact 5 seconds automatic slide interval
 
 type Slide = {
   id: string;
@@ -27,10 +27,10 @@ type Slide = {
 const slides: Slide[] = [
   {
     id: "humanitarian",
-    pillar: "Pillar A • Humanitarian Relief Work",
+    pillar: "Pillar A • Free Healthcare & Outpatient Care",
     badge: "Mercy in Motion",
-    image: "/media/field/hero-humanitarian-relief.jpg",
-    alt: "Muslim Medical Mission doctors providing free consultations and medicine at a rural outpatient medical camp",
+    image: "/media/field/free-medical-camp-medicines.jpg",
+    alt: "Muslim Medical Mission doctors providing free consultations and medicine at a rural outpatient medical camp with official banner",
     quote: "Whoever saves a life, it is as if he had saved all mankind.",
     quoteSource: "Surah Al-Ma'idah (5:32)",
     headline: "Mercy in Motion:",
@@ -38,33 +38,16 @@ const slides: Slide[] = [
     subtext: "Free medical camps, welfare clinics and surgical care delivered to the doorstep of those who need it most — without discrimination of race, religion or region.",
     primaryCta: { label: "Explore Relief Work", href: "/what-we-do" },
     secondaryCta: { label: "Donate to Camps", href: "/donate" },
-    operation: "Mercy in Motion",
-    place: "Free Camps & Welfare Clinics",
+    operation: "Free Medical Camps",
+    place: "South Punjab, Sindh & Rural Districts",
     href: "/what-we-do",
   },
   {
-    id: "disaster",
-    pillar: "Pillar B • Disasters & Emergency Relief",
-    badge: "First to Reach",
-    image: "/media/field/hero-disaster-response.jpg",
-    alt: "Muslim Medical Mission emergency rapid response team navigating flood waters to deliver medical aid",
-    quote: "The believer's shade on the Day of Resurrection will be his charity.",
-    quoteSource: "Prophet Muhammad ﷺ (Tirmidhi)",
-    headline: "When Calamity Strikes,",
-    highlight: "we are already moving.",
-    subtext: "From the 2005 Kashmir earthquake to the floods and droughts of today, MMM's emergency teams are pre-trained to deploy within hours, not days.",
-    primaryCta: { label: "Emergency Response", href: "/disaster-response" },
-    secondaryCta: { label: "Support Rapid Response", href: "/donate" },
-    operation: "First to Reach",
-    place: "Kashmir to Indus Basin",
-    href: "/disaster-response",
-  },
-  {
-    id: "academy",
+    id: "conference",
     pillar: "Pillar C • Educational & Professional Development",
     badge: "MMM Academy",
-    image: "/media/field/hero-national-conference.jpg",
-    alt: "Audience and delegates gathered at the Muslim Medical Mission National Medical Conference",
+    image: "/media/field/national-conference-stage.jpg",
+    alt: "Audience and delegates gathered at the Muslim Medical Mission National Medical Conference with grand official stage banner",
     quote: "The seeking of knowledge is an obligation upon every Muslim.",
     quoteSource: "Prophetic Tradition",
     headline: "Building Tomorrow's Healers",
@@ -72,8 +55,42 @@ const slides: Slide[] = [
     subtext: "Conferences, CME seminars, hands-on emergency training with Punjab Emergency Service (Rescue 1122), and scholarships cultivating compassionate healthcare leaders.",
     primaryCta: { label: "Discover MMM Academy", href: "/what-we-do/training" },
     secondaryCta: { label: "Join as Member", href: "/get-involved" },
-    operation: "MMM Academy",
-    place: "National Programs",
+    operation: "National Medical Conferences",
+    place: "Lahore & Academic Centers",
+    href: "/what-we-do/training",
+  },
+  {
+    id: "disaster",
+    pillar: "Pillar B • Disasters & Emergency Relief",
+    badge: "First to Reach",
+    image: "/media/field/hero-disaster-response.jpg",
+    alt: "Muslim Medical Mission emergency rapid response team navigating flood waters with banner on rescue boat",
+    quote: "The believer's shade on the Day of Resurrection will be his charity.",
+    quoteSource: "Prophet Muhammad ﷺ (Tirmidhi)",
+    headline: "When Calamity Strikes,",
+    highlight: "we are already moving.",
+    subtext: "From the 2005 Kashmir earthquake to the floods and droughts of today, MMM's emergency teams are pre-trained to deploy within hours, not days.",
+    primaryCta: { label: "Emergency Response", href: "/disaster-response" },
+    secondaryCta: { label: "Support Rapid Response", href: "/donate" },
+    operation: "Rapid Emergency Response",
+    place: "Kashmir to Indus Basin",
+    href: "/disaster-response",
+  },
+  {
+    id: "rescue",
+    pillar: "Pillar B • Emergency Training",
+    badge: "Life Support Training",
+    image: "/media/field/bls-rescue-1122.jpg",
+    alt: "Basic Life Support and First Responder Training in collaboration with Punjab Emergency Service Rescue 1122 and Muslim Medical Mission banner",
+    quote: "The best of people are those that bring the most benefit to the rest of mankind.",
+    quoteSource: "Prophetic Tradition (Daraqutni)",
+    headline: "Equipping First Responders",
+    highlight: "in collaboration with Rescue 1122.",
+    subtext: "Hands-on basic life support, trauma response, haemorrhage control and disaster triage certifying everyday volunteers as frontline community lifesavers.",
+    primaryCta: { label: "Explore Responder Courses", href: "/what-we-do/training" },
+    secondaryCta: { label: "Volunteer with Us", href: "/get-involved" },
+    operation: "BLS & Responders Training",
+    place: "In collaboration with Rescue 1122",
     href: "/what-we-do/training",
   },
   {
@@ -97,8 +114,6 @@ const slides: Slide[] = [
 
 export function Hero() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const timer = useRef<number | null>(null);
   const touchStartX = useRef<number | null>(null);
 
   const nextSlide = () => {
@@ -124,22 +139,19 @@ export function Hero() {
     touchStartX.current = null;
   };
 
+  // Robust 5-second automatic sliding that resets whenever slide changes
   useEffect(() => {
-    if (paused) return;
-    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = setInterval(() => {
+      setActive((current) => (current + 1) % slides.length);
+    }, DURATION);
 
-    timer.current = window.setTimeout(() => setActive((i) => (i + 1) % slides.length), DURATION);
-    return () => {
-      if (timer.current) window.clearTimeout(timer.current);
-    };
-  }, [active, paused]);
+    return () => clearInterval(timer);
+  }, [active]);
 
   return (
     <section
       className="relative isolate flex min-h-[100svh] h-[100svh] flex-col overflow-hidden bg-[#0A1020]"
       aria-label="Muslim Medical Mission"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -160,11 +172,11 @@ export function Hero() {
 
             {/* Cinematic contrast scrims matching UNDA dark tones */}
             <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0A1020]/90 via-[#0A1020]/60 to-transparent"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0A1020]/95 via-[#0A1020]/65 to-transparent"
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A1020]/90 via-transparent to-[#0A1020]/40"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A1020]/95 via-transparent to-[#0A1020]/45"
               aria-hidden
             />
 
@@ -231,9 +243,33 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Bottom Capsule Bar with Red Indicator Pill */}
+      {/* Edge Navigation Arrows for desktop */}
+      <div className="pointer-events-none absolute inset-y-0 inset-x-4 sm:inset-x-8 z-20 hidden md:flex items-center justify-between">
+        <button
+          type="button"
+          onClick={prevSlide}
+          aria-label="Previous slide"
+          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[#0A1020]/60 text-white backdrop-blur-md transition-all duration-200 hover:bg-[#075BD6] hover:border-[#075BD6] active:scale-95 cursor-pointer shadow-lg"
+        >
+          <svg className="h-5 w-5 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Next slide"
+          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[#0A1020]/60 text-white backdrop-blur-md transition-all duration-200 hover:bg-[#075BD6] hover:border-[#075BD6] active:scale-95 cursor-pointer shadow-lg"
+        >
+          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Bottom Capsule Bar with 5-second Animated Progress Bar */}
       <div className="absolute inset-x-0 bottom-6 z-20 flex justify-center px-4 sm:bottom-8">
-        <div className="flex w-full max-w-2xl items-center justify-between gap-4 rounded-full border border-white/20 bg-[#0A1020]/75 px-5 py-2.5 backdrop-blur-md shadow-2xl sm:px-6 sm:py-3">
+        <div className="flex w-full max-w-2xl items-center justify-between gap-4 rounded-full border border-white/20 bg-[#0A1020]/85 px-5 py-2.5 backdrop-blur-md shadow-2xl sm:px-6 sm:py-3">
           {/* Operation & Location Link */}
           <Link
             href={slides[active].href}
@@ -247,8 +283,12 @@ export function Hero() {
             <Arrow className="h-3.5 w-3.5 shrink-0 text-[#EF3B19] transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
 
-          {/* Sliding Indicator Dots with Brand Red Active Pill */}
+          {/* Sliding Indicator Dots with 5-second countdown progress bar */}
           <div className="flex shrink-0 items-center gap-2">
+            <span className="text-xs font-bold text-white/50 mr-1 hidden sm:inline">
+              0{active + 1} / 0{slides.length}
+            </span>
+
             {slides.map((s, i) => {
               const on = i === active;
               return (
@@ -257,12 +297,19 @@ export function Hero() {
                   type="button"
                   onClick={() => setActive(i)}
                   aria-label={`Go to slide ${i + 1}: ${s.operation}`}
-                  className={`cursor-pointer rounded-full transition-all duration-300 ${
+                  className={`relative cursor-pointer rounded-full overflow-hidden transition-all duration-300 ${
                     on
-                      ? "h-2.5 w-8 bg-[#EF3B19] shadow-[0_0_12px_rgba(239,59,25,0.7)]"
+                      ? "h-2.5 w-12 sm:w-14 bg-white/25 shadow-[0_0_10px_rgba(239,59,25,0.4)]"
                       : "h-2.5 w-2.5 bg-white/40 hover:bg-white/90"
                   }`}
-                />
+                >
+                  {on && (
+                    <span
+                      key={`progress-${active}`}
+                      className="absolute inset-0 rounded-full bg-[#EF3B19] animate-hero-progress"
+                    />
+                  )}
+                </button>
               );
             })}
           </div>

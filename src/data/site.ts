@@ -175,6 +175,7 @@ export const nav: NavItem[] = [
           { label: "Field reports", href: "/media" },
           { label: "Photo library", href: "/media#gallery" },
           { label: "Video", href: "/media#video" },
+          { label: "Live social feed", href: "/#social-feed" },
         ],
       },
       {

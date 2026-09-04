@@ -5,6 +5,7 @@ import { Programmes } from "@/components/home/Programmes";
 import { GazaBand } from "@/components/home/GazaBand";
 import { Giving } from "@/components/home/Giving";
 import { Reports } from "@/components/home/Reports";
+import { SocialFeed } from "@/components/home/SocialFeed";
 import { JoinCta } from "@/components/home/JoinCta";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <GazaBand />
       <Giving />
       <Reports />
+      <SocialFeed />
       <JoinCta />
     </>
   );
